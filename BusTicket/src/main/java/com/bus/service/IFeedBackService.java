@@ -7,11 +7,11 @@ import com.bus.model.FeedBack;
 public interface IFeedBackService {
 
 	
-	public FeedBack addFeedBack(FeedBack feedback);
+	   FeedBack addFeedBack(FeedBack feedback);
   
-	 public FeedBack updateFeedBack (FeedBack feedback);
+	   FeedBack updateFeedBack (FeedBack feedback);
 
-	 public  FeedBack viewFeedBack(int feedbackld);
+	   FeedBack viewFeedBack(int feedbackld);
  
-	  public List<FeedBack> viewAllFeedBack();
+	   List<FeedBack> viewAllFeedBack();
 }

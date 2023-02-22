@@ -1,6 +1,6 @@
 package com.bus.paylord;
 
-public enum Stutus {
+public enum Status {
  
 	 Active,InActive
 }

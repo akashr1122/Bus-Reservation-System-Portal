@@ -3,19 +3,20 @@ package com.bus.service;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.bus.exception.ReservationException;
 import com.bus.model.Reservation;
 
 public interface IReservationService {
 
-	public Reservation addReservation(Reservation reservation);
+	 Reservation addReservation(Reservation reservation) throws ReservationException;
 
-	public Reservation updateReservation(Reservation reservation);
+	 Reservation updateReservation(Reservation reservation)throws ReservationException;
 
-	public Reservation deleteReservation(int reservationld);
+	 Reservation deleteReservation(int reservationld)throws ReservationException;
 
-	public Reservation viewReservation(int reservationld);
+	 Reservation viewReservation(int reservationld)throws ReservationException;
 
-	public List<Reservation> viewAllReservation();
+	 List<Reservation> viewAllReservation()throws ReservationException;
 
-	public List<Reservation> getAllReservation(LocalDate date);
+	 List<Reservation> getAllReservation(LocalDate date)throws ReservationException;
 }

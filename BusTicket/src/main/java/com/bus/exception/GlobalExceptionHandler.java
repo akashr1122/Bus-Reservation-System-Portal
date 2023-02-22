@@ -44,5 +44,18 @@ public class GlobalExceptionHandler {
 	  return new ResponseEntity<Map<String,String>>(resp,HttpStatus.BAD_REQUEST)  ;
 	
 }
+	@ExceptionHandler(BusException.class)
+	public ResponseEntity<MyErrorDetails> handleMethodArgsNotValidException(BusException ex,WebRequest req){
+		
+		MyErrorDetails err = new MyErrorDetails();
+		err.setTimestamp(LocalDateTime.now());
+		err.setMessage(ex.getMessage());
+		err.setDetails(req.getDescription(false));
+		
+		
+		return new ResponseEntity<MyErrorDetails>(err, HttpStatus.BAD_REQUEST);
+			
+}
+
 }
 

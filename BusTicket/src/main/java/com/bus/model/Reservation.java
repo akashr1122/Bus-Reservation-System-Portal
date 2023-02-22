@@ -4,8 +4,19 @@ import java.time.LocalDate;
 
 import com.bus.paylord.Status;
 
-import jakarta.persistence.*;
-import lombok.*;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 @NoArgsConstructor
 @Getter
@@ -30,7 +41,8 @@ public class Reservation {
 	 
 	 private String destination;
 	 
-	 @OneToOne(cascade = CascadeType.ALL)
-	 private Bus reservations;
 
+	 @ManyToOne
+	 private Bus bus;
+	 
 }

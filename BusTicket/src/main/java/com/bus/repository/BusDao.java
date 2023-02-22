@@ -12,7 +12,7 @@ import com.bus.model.Bus;
 
 public interface BusDao extends JpaRepository<Bus, Integer>{
 	
-	@Query("select * from bus b where b.routefrom=:from and b.routeto=:to")
+	@Query("from Bus where routeFrom=:from and routeTo=:to")
 	public List<Bus> getAllBusByRoute(@Param("from") String from,@Param("to") String to);
 
 	

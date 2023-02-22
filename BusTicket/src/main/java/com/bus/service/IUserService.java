@@ -6,13 +6,13 @@ import com.bus.model.User;
 
 public interface IUserService {
 
-	 public User addUser(User user);
+	  User addUser(User user);
    
-	  public User updateUser(User user);
+      User updateUser(User user);
 
-     public  User deleteUser(int userld);
+      User deleteUser(int userld);
       
-     public  User viewUser(int userld);
+      User viewUser(int userld);
 
-       public  List<User> viewAllUsers();
+      List<User> viewAllUsers();
 }

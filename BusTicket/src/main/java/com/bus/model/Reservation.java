@@ -2,24 +2,17 @@ package com.bus.model;
 
 import java.time.LocalDate;
 
-import com.bus.paylord.Stutus;
+import com.bus.paylord.Status;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @NoArgsConstructor
 @Getter
 @Setter
 @AllArgsConstructor
 @Entity
+@Data
 public class Reservation {
  
 	@Id
@@ -27,7 +20,7 @@ public class Reservation {
 	 private Integer reservationId;
 	 
 	 @Enumerated
-	 private Stutus reservationstutus;
+	 private Status reservation_status;
 	 
 	 private String reservationType;
 	 
@@ -37,7 +30,7 @@ public class Reservation {
 	 
 	 private String destination;
 	 
-	 @OneToOne
-	 private Bus bus;
-	 
+	 @OneToOne(cascade = CascadeType.ALL)
+	 private Bus reservations;
+
 }

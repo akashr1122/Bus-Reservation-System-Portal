@@ -26,6 +26,8 @@ public class IBusServiceImpl implements IBusService{
 	public Bus updateBus(Bus bus) throws BusException {
 		Optional<Bus> savedBus=bdao.findById(bus.getBusId());
 		
+		
+		
 		if(savedBus.isPresent()) {
 			Bus updateBus=bdao.save(bus);
 			return updateBus;

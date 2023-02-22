@@ -13,23 +13,23 @@ import com.bus.repository.BusDao;
 public class IBusServiceImpl implements IBusService{
 	
 	@Autowired
-	private BusDao bdao;
+	private BusDao busdao;
 
 	@Override
 	public Bus addBus(Bus bus) {
-		Bus saveBus=bdao.save(bus);
+		Bus saveBus=busdao.save(bus);
 		
 		return saveBus;
 	}
 
 	@Override
 	public Bus updateBus(Bus bus) throws BusException {
-		Optional<Bus> savedBus=bdao.findById(bus.getBusId());
+		Optional<Bus> savedBus=busdao.findById(bus.getBusId());
 		
 		
 		
 		if(savedBus.isPresent()) {
-			Bus updateBus=bdao.save(bus);
+			Bus updateBus=busdao.save(bus);
 			return updateBus;
 		}else {
 			throw new BusException("Invalid Bus details.................");
@@ -40,12 +40,12 @@ public class IBusServiceImpl implements IBusService{
 
 	@Override
 	public Bus deleteBus(int busld) throws BusException {
-		Optional<Bus> opt=bdao.findById(busld);
+		Optional<Bus> opt=busdao.findById(busld);
 		
 		if(opt.isPresent()) {
 			Bus existingBus=opt.get();
 			
-			bdao.delete(existingBus);
+			busdao.delete(existingBus);
 			
 			return existingBus;
 		}else {
@@ -56,7 +56,7 @@ public class IBusServiceImpl implements IBusService{
 
 	@Override
 	public Bus viewBus(int busld) throws BusException {
-		Optional<Bus> opt=bdao.findById(busld);
+		Optional<Bus> opt=busdao.findById(busld);
 		
 		if(opt.isPresent()) {
 			Bus bus=opt.get();

@@ -23,7 +23,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @Entity
-@Data
 public class Reservation {
  
 	@Id

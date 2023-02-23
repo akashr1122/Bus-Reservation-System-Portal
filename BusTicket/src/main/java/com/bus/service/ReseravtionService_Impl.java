@@ -1,4 +1,4 @@
-package com.bus.Impl;
+package com.bus.service;
 
 import com.bus.exception.ReservationException;
 import com.bus.model.Reservation;

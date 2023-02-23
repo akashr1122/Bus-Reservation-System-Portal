@@ -29,6 +29,19 @@ public class frontEndSeviceController {
 		return new ResponseEntity<List<Bus>>(bus,HttpStatus.ACCEPTED);
 	}
 	
+	@GetMapping("/buses")
+	public ResponseEntity<List<Bus>> getAllBus(){
+		
+		List<Bus> bus=endService.getAllBus();
+		
+	
+		
+		return new ResponseEntity<List<Bus>>(bus,HttpStatus.ACCEPTED);
+	}
+	
+	
+	
+	
 	@GetMapping("/bus/routeFrom/")
 	public ResponseEntity<List<String>> getAllBusByFrom(){
 		

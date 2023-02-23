@@ -23,7 +23,8 @@ public interface BusDao extends JpaRepository<Bus, Integer>{
 	@Query("SELECT DISTINCT routeTo from Bus")
 	public List<String> getAllBusByTo();
 	
-	
+	@Query("from Bus")
+	public List<Bus> getAllBus();
 
 	
 }

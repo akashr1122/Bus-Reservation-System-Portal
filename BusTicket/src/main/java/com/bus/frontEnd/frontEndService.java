@@ -10,5 +10,6 @@ public interface frontEndService {
 	
 	public List<String> getAllBusByTo();
 	
+	public List<Bus> getAllBus();
 	
 }

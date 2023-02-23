@@ -20,5 +20,6 @@ insert into bus values(8,'13:12:00',20,'ak6',1,'amravathi','lucknow',30,NULL);
 insert into bus values(9,'13:12:00',20,'ak6',1,'hyderabad','lucknow',30,NULL);
      
 insert into bus values(10,'13:12:00',20,'ak7',1,'delhi','lucknow',30,NULL);
-     
+
+insert into bus values(11,'13:12:00',20,'ak8',1,'delhi','Bhubaneswar',30,NULL);
      

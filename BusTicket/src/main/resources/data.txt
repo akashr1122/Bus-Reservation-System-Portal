@@ -21,4 +21,4 @@ insert into bus values(9,'13:12:00',20,'ak6',1,'hyderabad','lucknow',30,NULL);
      
 insert into bus values(10,'13:12:00',20,'ak7',1,'delhi','lucknow',30,NULL);
      
-     
+hi     

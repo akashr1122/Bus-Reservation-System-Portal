@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.bus.exception.UserNotFoundException;
 import com.bus.model.User;
 import com.bus.repository.UserDao;
+
 @Service
 public class IUserServiceImpl implements IUserService {
 

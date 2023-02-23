@@ -37,7 +37,7 @@ public class Bus {
 	private String busName;
 	
 	
-	private Integer busType;
+	private BusType busType;
 
 	@NotNull
 	private String routeFrom;

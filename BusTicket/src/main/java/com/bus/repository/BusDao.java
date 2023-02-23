@@ -1,6 +1,7 @@
 package com.bus.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -25,6 +26,9 @@ public interface BusDao extends JpaRepository<Bus, Integer>{
 	
 	@Query("from Bus")
 	public List<Bus> getAllBus();
+	
+	public Optional<List<Bus>> findByBusType(String bysType);
+
 
 	
 }

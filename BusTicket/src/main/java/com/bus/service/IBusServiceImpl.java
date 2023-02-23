@@ -1,5 +1,6 @@
 package com.bus.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,21 +14,23 @@ import com.bus.repository.BusDao;
 public class IBusServiceImpl implements IBusService{
 	
 	@Autowired
-	private BusDao bdao;
+	private BusDao busdao;
 
 	@Override
 	public Bus addBus(Bus bus) {
-		Bus saveBus=bdao.save(bus);
+		Bus saveBus=busdao.save(bus);
 		
 		return saveBus;
 	}
 
 	@Override
 	public Bus updateBus(Bus bus) throws BusException {
-		Optional<Bus> savedBus=bdao.findById(bus.getBusId());
+		Optional<Bus> savedBus=busdao.findById(bus.getBusId());
+		
+		
 		
 		if(savedBus.isPresent()) {
-			Bus updateBus=bdao.save(bus);
+			Bus updateBus=busdao.save(bus);
 			return updateBus;
 		}else {
 			throw new BusException("Invalid Bus details.................");
@@ -38,12 +41,12 @@ public class IBusServiceImpl implements IBusService{
 
 	@Override
 	public Bus deleteBus(int busld) throws BusException {
-		Optional<Bus> opt=bdao.findById(busld);
+		Optional<Bus> opt=busdao.findById(busld);
 		
 		if(opt.isPresent()) {
 			Bus existingBus=opt.get();
 			
-			bdao.delete(existingBus);
+			busdao.delete(existingBus);
 			
 			return existingBus;
 		}else {
@@ -54,7 +57,7 @@ public class IBusServiceImpl implements IBusService{
 
 	@Override
 	public Bus viewBus(int busld) throws BusException {
-		Optional<Bus> opt=bdao.findById(busld);
+		Optional<Bus> opt=busdao.findById(busld);
 		
 		if(opt.isPresent()) {
 			Bus bus=opt.get();
@@ -64,6 +67,30 @@ public class IBusServiceImpl implements IBusService{
 		}
 		
 		
+	}
+
+	@Override
+	public Optional<List<Bus>> viewBusByType(String busType) throws BusException{
+Optional<List<Bus>> buses=busdao.findByBusType(busType);
+		
+		if(buses.isEmpty()) {
+			throw new BusException("Buses not available with "+busType);
+		}else {
+			return buses;
+		}
+	}
+
+	@Override
+	public List<Bus> viewAllBus() throws BusException{
+		List<Bus> buses=busdao.findAll();
+		
+		if(buses==null) {
+			throw new BusException("No bus available");
+		}else {
+			return buses;
+
+		}
+
 	}
 
 }

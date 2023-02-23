@@ -2,16 +2,17 @@ package com.bus.service;
 
 import java.util.List;
 
+import com.bus.exception.FeedBackNotFoundException;
 import com.bus.model.FeedBack;
 
 public interface IFeedBackService {
 
 	
-	public FeedBack addFeedBack(FeedBack feedback);
+	   FeedBack addFeedBack(FeedBack feedback) ;
   
-	 public FeedBack updateFeedBack (FeedBack feedback);
+	   FeedBack updateFeedBack (FeedBack feedback) throws FeedBackNotFoundException;
 
-	 public  FeedBack viewFeedBack(int feedbackld);
+	   FeedBack viewFeedBack(int feedbackld) throws FeedBackNotFoundException;
  
-	  public List<FeedBack> viewAllFeedBack();
+	   List<FeedBack> viewAllFeedBack() throws FeedBackNotFoundException;
 }

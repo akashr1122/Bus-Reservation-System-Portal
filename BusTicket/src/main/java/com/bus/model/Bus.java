@@ -8,6 +8,7 @@ import com.bus.paylord.BusType;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -34,7 +35,8 @@ public class Bus {
 
 	@NotNull
 	private String busName;
-	@Enumerated
+	
+	
 	private BusType busType;
 
 	@NotNull

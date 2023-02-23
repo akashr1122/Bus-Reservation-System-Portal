@@ -14,6 +14,17 @@ public interface BusDao extends JpaRepository<Bus, Integer>{
 	
 	@Query("from Bus where routeFrom=:from and routeTo=:to")
 	public List<Bus> getAllBusByRoute(@Param("from") String from,@Param("to") String to);
+	
+	
+	@Query("SELECT DISTINCT routeFrom from Bus")
+	public List<String> getAllBusByFrom();
+	
+	
+	@Query("SELECT DISTINCT routeTo from Bus")
+	public List<String> getAllBusByTo();
+	
+	@Query("from Bus")
+	public List<Bus> getAllBus();
 
 	
 }

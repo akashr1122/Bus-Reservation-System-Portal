@@ -36,8 +36,8 @@ public class Bus {
 	@NotNull
 	private String busName;
 	
-	@Enumerated(EnumType.STRING)
-	private BusType busType;
+	
+	private Integer busType;
 
 	@NotNull
 	private String routeFrom;

@@ -16,5 +16,24 @@ public class FrontEndServiceImpl implements frontEndService {
 		List<Bus> list=busDao.getAllBusByRoute(from, to);
 		return list;
 	}
+	@Override
+	public List<String> getAllBusByFrom() {
+		// TODO Auto-generated method stub
+		List<String> list=busDao.getAllBusByFrom();
+		
+		
+		
+		
+		return list;
+	}
+	@Override
+	public List<String> getAllBusByTo() {
+		// TODO Auto-generated method stub
+		List<String> list=busDao.getAllBusByTo();
+		return list;
+	}
+	
+	
+	
 
 }

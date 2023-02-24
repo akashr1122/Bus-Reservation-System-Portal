@@ -1,7 +1,9 @@
 package com.bus.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -29,12 +31,12 @@ public class FeedBack {
 	
 	private String comments;
 	
-	private LocalDate feedBackDate;
+	private Date feedBackDate;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private User user;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Bus bus;
 	
 }

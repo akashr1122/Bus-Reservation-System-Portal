@@ -9,6 +9,11 @@ import com.bus.exception.UserNotFoundException;
 import com.bus.model.User;
 import com.bus.repository.UserDao;
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 81bbe886d2051b05bc1694311b8ef331b13559c7
 @Service
 public class IUserServiceImpl implements IUserService {
 
@@ -17,9 +22,9 @@ public class IUserServiceImpl implements IUserService {
 
 	@Override
 	public User addUser(User user) {
-
-		User u = userDao.save(user);
-		return u;
+		 userDao.save(user);
+		
+		return user;
 
 	}
 

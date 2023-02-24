@@ -1,5 +1,6 @@
 package com.bus.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,7 +28,7 @@ public class User {
 	
 	private  String password;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Reservation reservation;
 	
 	

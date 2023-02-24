@@ -3,20 +3,20 @@ package com.bus.service;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.bus.exception.ReservationException;
+import com.bus.exception.ReservationNotFoundException;
 import com.bus.model.Reservation;
 
 public interface IReservationService {
 
-	 Reservation addReservation(Reservation reservation) throws ReservationException;
+	 String addReservation(Reservation reservation) throws ReservationNotFoundException;
 
-	 Reservation updateReservation(Reservation reservation)throws ReservationException;
+	 String updateReservation(Reservation reservation)throws ReservationNotFoundException;
 
-	 Reservation deleteReservation(int reservationld)throws ReservationException;
+	 String deleteReservation(Integer reservationld)throws ReservationNotFoundException;
 
-	 Reservation viewReservation(int reservationld)throws ReservationException;
+	 Reservation viewReservation(Integer reservationld)throws ReservationNotFoundException;
 
-	 List<Reservation> viewAllReservation()throws ReservationException;
+	 List<Reservation> viewAllReservation()throws ReservationNotFoundException;
 
-	 List<Reservation> getAllReservation(LocalDate date)throws ReservationException;
+	 List<Reservation> getAllReservation(LocalDate date)throws ReservationNotFoundException;
 }

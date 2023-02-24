@@ -18,7 +18,28 @@ i {
   background-color: #db2d2d;
   padding: 0px;
 }
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  display: flex;
+}
 
+/* .heading {
+  text-align: center;
+}
+.heading h1 {
+  margin: 30px;
+} */
+.background {
+  background-image: url("/dist/Picsart_23-02-23_18-57-51-869.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: top;
+  background-size: cover;
+
+  height: 450px;
+}
 #logo {
   width: 20%;
   margin: -13px 0px;
@@ -31,7 +52,7 @@ i {
     opacity: 1;
   }
   100% {
-    left: 1130px;
+    left: 930px;
   }
 }
 @media (max-width: 991px) {
@@ -48,8 +69,8 @@ i {
 #Selection {
   display: flex;
   justify-content: center;
-  margin: 50px 0px;
   gap: 50px;
+  padding-top: 230px;
 }
 
 .custom-dropdown select {
@@ -105,7 +126,7 @@ span #search {
   margin-left: 200px;
 }
 .fa-arrow-right-arrow-left {
-  color: #db2d2d;
+  color:white;
   margin: auto;
   margin-top: 10px;
   font-size: 30px;

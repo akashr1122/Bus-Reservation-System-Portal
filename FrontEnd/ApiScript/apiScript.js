@@ -26,12 +26,3 @@ async function postData(url = '', data = {}) {
     .then((data) => {
       console.log(data); // JSON data parsed by `data.json()` call
     });
-
-
-
-    function fadeOut() {
-        document.querySelector(".fade-out-effect").classList.add("active");
-        setTimeout(() => {
-            document.querySelector(".fade-out-effect").classList.remove("active");
-        }, 300)
-    }

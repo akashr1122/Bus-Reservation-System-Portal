@@ -1,10 +1,12 @@
 package com.bus.model;
 
+import java.sql.Time;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.bus.paylord.BusType;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -37,15 +39,18 @@ public class Bus {
 	private String busName;
 	
 	
+	@Enumerated(EnumType.STRING)
 	private BusType busType;
+
 
 	@NotNull
 	private String routeFrom;
 	@NotNull
 	private String routeTo;
-	
-	@NotNull
-	private LocalTime arrivalTime;
+	@NotNull(message = "arrivalTime can't be null")
+	@JsonFormat(pattern = "HH:mm:ss", timezone = "UTC")
+	private Time arrivalTime = Time.valueOf("00:00:00");
+
 	@NotNull
 	private Integer seats;
 	@NotNull
@@ -55,8 +60,7 @@ public class Bus {
 	private Route route;
 	
 	 
-	@OneToMany(mappedBy = "bus", cascade = CascadeType.ALL,fetch = FetchType.LAZY )
-	 private List<Reservation> reservations = new ArrayList<>();
+	
 	
 	
 

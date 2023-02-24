@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.bus.exception.BusException;
 import com.bus.model.Bus;
+import com.bus.paylord.BusType;
 import com.bus.repository.BusDao;
 
 @Service
@@ -70,14 +71,10 @@ public class IBusServiceImpl implements IBusService{
 	}
 
 	@Override
-	public Optional<List<Bus>> viewBusByType(String busType) throws BusException{
-Optional<List<Bus>> buses=busdao.findByBusType(busType);
-		
-		if(buses.isEmpty()) {
-			throw new BusException("Buses not available with "+busType);
-		}else {
-			return buses;
-		}
+
+	public List<Bus> getAllBusesByType(BusType busType) {
+		  List<Bus>  buses = busdao.findByBusType(busType);
+		  return buses;
 	}
 
 	@Override

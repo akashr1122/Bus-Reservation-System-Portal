@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import com.bus.exception.BusException;
 import com.bus.model.Bus;
+import com.bus.paylord.BusType;
 
 public interface IBusService {
 
@@ -16,7 +17,7 @@ public interface IBusService {
 
 	public Bus viewBus(int busld) throws BusException;
 
-	public Optional<List<Bus>> viewBusByType(String busType)throws BusException;
+	public List<Bus> getAllBusesByType(BusType busType)throws BusException;
 
 	public List<Bus> viewAllBus()throws BusException;
 

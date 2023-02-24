@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.bus.model.User;
 import com.bus.service.IUserService;
+import com.bus.service.IUserServiceImpl;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
@@ -20,7 +21,7 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 public class UserController {
 
 	@Autowired
-	private IUserService userService;
+	private IUserServiceImpl userService;
 
 	@PostMapping("/bus/user")
 	public ResponseEntity<User> addUserHandler(@RequestBody User user) {

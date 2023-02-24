@@ -2,11 +2,13 @@ package com.bus.service;
 
 import com.bus.exception.ReservationNotFoundException;
 import com.bus.model.Reservation;
+import com.bus.repository.BusDao;
 import com.bus.repository.ReservationDao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -17,15 +19,23 @@ public class IReservationServiceImpl implements IReservationService {
     @Autowired
     private ReservationDao reservationDao;
 
+    @Autowired
+    private BusDao busDao;
+    
+    
 	@Override
 	public String addReservation(Reservation reservation) throws ReservationNotFoundException {
 		// TODO Auto-generated method stub
 		
 		String string="Reservation not added successfully";
 		
-		Optional<Reservation> reserve=reservationDao.findById(reservation.getReservationId());
+		reservation.setBus(busDao.findById(reservation.getBus().getBusId()).get());
+	
+		reservation.setReservationDate(Date.valueOf(LocalDate.now()));
 		
-		if(reserve.isPresent()) {throw new ReservationNotFoundException("Reservation is already present");}
+		reservation.setSource(reservation.getBus().getRouteFrom());
+		
+		reservation.setDestination(reservation.getBus().getRouteTo());
 		
 		reservationDao.save(reservation);
 		

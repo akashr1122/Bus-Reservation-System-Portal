@@ -1,6 +1,6 @@
 package com.bus.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 import com.bus.paylord.Status;
 
@@ -34,7 +34,7 @@ public class Reservation {
 	 
 	 private String reservationType;
 	 
-	 private LocalDate reservationDate;
+	 private Date reservationDate;
 	 
 	 private String Source;
 	 

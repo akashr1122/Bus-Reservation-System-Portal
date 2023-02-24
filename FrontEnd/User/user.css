@@ -15,30 +15,49 @@ i {
   padding: 15px;
 }
 .navbar-mainbg {
-  background-color: #db2d2d;
+  background-color: #d84f57;
   padding: 0px;
 }
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  display: flex;
+}
 
+/* .heading {
+  text-align: center;
+}
+.heading h1 {
+  margin: 30px;
+} */
+.background {
+  background-image: url("/dist/Picsart_23-02-23_18-57-51-869.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: top;
+  background-size: cover;
+
+  height: 450px;
+}
 #logo {
   width: 20%;
   margin: -13px 0px;
   position: relative;
-  animation: busmove 8s infinite;
+  animation: busmove 15s infinite;
 }
 @keyframes busmove {
   0% {
     left: 0px;
-    opacity: 1;
   }
   100% {
-    left: 1130px;
+    left: 930px;
   }
 }
 @media (max-width: 991px) {
   @keyframes busmove {
     0% {
       left: 0px;
-      opacity: 1;
     }
     100% {
       left: 850px;
@@ -48,13 +67,13 @@ i {
 #Selection {
   display: flex;
   justify-content: center;
-  margin: 50px 0px;
   gap: 50px;
+  padding-top: 230px;
 }
 
 .custom-dropdown select {
-  background-color: #db2d2d;
-  color: #fff;
+  background-color: #eec4c4a2;
+  color: #353333;
   font-size: inherit;
   padding: 15px;
   padding-right: 2.5em;
@@ -74,11 +93,11 @@ i {
 }
 
 input[type="date"] {
-  background-color: #db2d2d;
+  background-color: #eec4c4a2;
   padding: 10px;
   position: absolute;
   font-family: "Roboto Mono", monospace;
-  color: #ffffff;
+  color: #383636;
   font-size: 18px;
   border: none;
   outline: none;
@@ -95,7 +114,7 @@ input[type="date"] {
   margin-left: 20px;
   padding: 10px;
   border: none;
-  background-color: #db2d2d;
+  background-color: #d84f57;
   color: white;
   font-size: 20px;
   border-radius: 5px;
@@ -104,12 +123,68 @@ input[type="date"] {
 span #search {
   margin-left: 200px;
 }
-.fa-arrow-right-arrow-left {
-  color: #db2d2d;
+.fa-arrow-right-arrow-left:not(.red) {
+  color: white;
   margin: auto;
   margin-top: 10px;
   font-size: 30px;
 }
 #user a {
   color: white;
+}
+.red {
+  color: #d84f57;
+  width: 60px;
+  font-size: xx-large;
+  transform: scale(1.5, 1);
+}
+.rout_ {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 20px 40px;
+}
+
+.card img {
+  width: 50%;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+  width: 100%;
+  padding-right: 40px;
+}
+
+.card-title {
+  font-size: 24px;
+  margin-top: 0;
+  
+}
+
+.card-description {
+  margin-bottom: 20px;
+}
+
+.book-button {
+  background-color: #d84f57;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 40px;
+  cursor: pointer;
+}
+
+.book-button:hover {
+  background-color: #a02323;
 }

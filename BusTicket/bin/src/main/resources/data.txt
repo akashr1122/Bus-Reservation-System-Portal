@@ -1,0 +1,24 @@
+hi
+
+
+insert into bus values(1,'13:12:00',20,'ak',1,'patna','vaishali',30);
+
+insert into bus values(2,'13:12:00',20,'ak1',1,'patna','mumbai',30,NULL);
+
+insert into bus values(3,'13:12:00',20,'ak2',1,'patna','lucknow',30,NULL);
+ 
+insert into bus values(4,'13:12:00',20,'ak3',1,'mumbai','patna',30,NULL);
+  
+insert into bus values(5,'13:12:00',20,'ak4',1,'lucknow','patna',30,NULL);
+  
+insert into bus values(6,'13:12:00',20,'ak5',1,'lucknow','mumbai',30,NULL);
+   
+insert into bus values(7,'13:12:00',20,'ak5',1,'mumbai','lucknow',30,NULL);
+    
+insert into bus values(8,'13:12:00',20,'ak6',1,'amravathi','lucknow',30,NULL);
+    
+insert into bus values(9,'13:12:00',20,'ak6',1,'hyderabad','lucknow',30,NULL);
+     
+insert into bus values(10,'13:12:00',20,'ak7',1,'delhi','lucknow',30,NULL);
+     
+     

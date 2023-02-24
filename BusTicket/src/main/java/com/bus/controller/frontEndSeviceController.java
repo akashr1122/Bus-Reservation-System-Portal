@@ -44,7 +44,7 @@ public class frontEndSeviceController {
 	
 	
 	
-	@GetMapping("/bus/routeFrom/")
+	@GetMapping("/bus/routeFrom")
 	public ResponseEntity<List<String>> getAllBusByFrom(){
 		
 		List<String> strings=endService.getAllBusByFrom();
@@ -55,7 +55,7 @@ public class frontEndSeviceController {
 	}
 	
 	
-	@GetMapping("/bus/routeTo/")
+	@GetMapping("/bus/routeTo")
 	public ResponseEntity<List<String>> getAllBusByTo(){
 		
 		List<String> strings=endService.getAllBusByTo();

@@ -15,8 +15,14 @@ i {
   padding: 15px;
   color: #fff;
 }
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  display: flex;
+}
 .navbar-mainbg {
-  background-color: #db2d2d;
+  background-color: #d84f57;
   padding: 0px;
 }
 #navbarSupportedContent {
@@ -45,7 +51,7 @@ i {
   position: relative;
 }
 #navbarSupportedContent > ul > li.active > a {
-  color: #db2d2d;
+  color: #d84f57;
   background-color: transparent;
   transition: all 0.7s;
 }
@@ -99,7 +105,7 @@ i {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #db2d2d;
+  background-color: #d84f57;
 }
 .hori-selector .right:before {
   bottom: 0;
@@ -178,12 +184,12 @@ i {
   margin: 50px 0px;
   gap: 15px;
 }
-#Selection div{
+#Selection div {
   width: 30%;
 }
 
 .custom-dropdown select {
-  background-color: #db2d2d;
+  background-color: #d84f57;
   color: #fff;
   font-size: inherit;
   padding: 15px;
@@ -204,7 +210,7 @@ i {
 }
 
 input[type="date"] {
-  background-color: #db2d2d;
+  background-color: #d84f57;
   padding: 13px;
   font-family: "Roboto Mono", monospace;
   color: #ffffff;
@@ -212,13 +218,11 @@ input[type="date"] {
   border: none;
   outline: none;
   border-radius: 3px;
-  
 }
 
-.Add_rout input[type="date"]{
+.Add_rout input[type="date"] {
   margin-top: 13px;
   padding: 10px 3px;
-
 }
 ::-webkit-calendar-picker-indicator {
   background-color: #ffffff;
@@ -231,7 +235,7 @@ input[type="date"] {
   margin-left: 200px;
   padding: 10px;
   border: none;
-  background-color: #db2d2d;
+  background-color: #d84f57;
   color: white;
   font-size: 20px;
   border-radius: 5px;
@@ -267,7 +271,7 @@ form input:not(input[type="date"]) {
   border-radius: 5px;
 }
 form input:focus {
-  border: 0.125rem solid #db2d2d;
+  border: 0.125rem solid #d84f57;
 }
 
 form div:last-child {
@@ -275,7 +279,7 @@ form div:last-child {
 }
 
 .btn3 {
-  background-color: #db2d2d;
+  background-color: #d84f57;
   color: white;
   border: none;
   border-radius: 5px;
@@ -293,7 +297,7 @@ form div:last-child {
 }
 
 .fa-arrow-right-arrow-left {
-  color: #db2d2d;
+  color: #d84f57;
   font-size: 30px;
   margin-top: 10px;
   margin-right: 20px;

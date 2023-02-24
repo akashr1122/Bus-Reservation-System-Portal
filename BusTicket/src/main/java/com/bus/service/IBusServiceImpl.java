@@ -1,5 +1,6 @@
 package com.bus.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +67,30 @@ public class IBusServiceImpl implements IBusService{
 		}
 		
 		
+	}
+
+	@Override
+	public Optional<List<Bus>> viewBusByType(String busType) throws BusException{
+Optional<List<Bus>> buses=busdao.findByBusType(busType);
+		
+		if(buses.isEmpty()) {
+			throw new BusException("Buses not available with "+busType);
+		}else {
+			return buses;
+		}
+	}
+
+	@Override
+	public List<Bus> viewAllBus() throws BusException{
+		List<Bus> buses=busdao.findAll();
+		
+		if(buses==null) {
+			throw new BusException("No bus available");
+		}else {
+			return buses;
+
+		}
+
 	}
 
 }

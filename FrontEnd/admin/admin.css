@@ -15,6 +15,12 @@ i {
   padding: 15px;
   color: #fff;
 }
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  display: flex;
+}
 .navbar-mainbg {
   background-color: #db2d2d;
   padding: 0px;
@@ -178,7 +184,7 @@ i {
   margin: 50px 0px;
   gap: 15px;
 }
-#Selection div{
+#Selection div {
   width: 30%;
 }
 
@@ -212,13 +218,11 @@ input[type="date"] {
   border: none;
   outline: none;
   border-radius: 3px;
-  
 }
 
-.Add_rout input[type="date"]{
+.Add_rout input[type="date"] {
   margin-top: 13px;
   padding: 10px 3px;
-
 }
 ::-webkit-calendar-picker-indicator {
   background-color: #ffffff;

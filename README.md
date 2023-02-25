@@ -3,7 +3,7 @@
 <p align="center">
   <img width="250" height="200" src="">
 </p>
-<!-- ![Win_covid Logo](https://user-images.githubusercontent.com/107523890/213869160-f890c96d-3c6b-4a72-8f03-3b85ca930683.png) -->
+
 
 
 > We have developed this REST API for a Bus Reservation System Portal. This API performs all the fundamental CRUD operations of any Real life Bus Reservation System Management platform with user book a ticket at anywhere.

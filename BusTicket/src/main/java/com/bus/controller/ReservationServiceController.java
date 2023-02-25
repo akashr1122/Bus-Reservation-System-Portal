@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bus.model.Reservation;
 import com.bus.service.IReservationService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @CrossOrigin(origins = "*")
 public class ReservationServiceController {
@@ -26,7 +28,7 @@ public class ReservationServiceController {
 	private IReservationService iReservationService;
 
 	@PostMapping("/reservation/add")
-	public ResponseEntity<String> addReservationController(@RequestBody Reservation reservation) {
+	public ResponseEntity<String> addReservationController( @Valid @RequestBody Reservation reservation) {
 
 		String string = iReservationService.addReservation(reservation);
 
@@ -34,7 +36,7 @@ public class ReservationServiceController {
 	}
 
 	@PutMapping("/reservation/update")
-	public ResponseEntity<String> updateReservationController(@RequestBody Reservation reservation) {
+	public ResponseEntity<String> updateReservationController( @Valid @RequestBody Reservation reservation) {
 
 		String string = iReservationService.updateReservation(reservation);
 
@@ -69,7 +71,7 @@ public class ReservationServiceController {
 	}
 	
 	@GetMapping("/reservations/{reservationdate}")
-	public ResponseEntity<List<Reservation>> getAllReservationController(@PathVariable(name="reservationDate") LocalDate ldate){
+	public ResponseEntity<List<Reservation>> getAllReservationController(@Valid @PathVariable(name="reservationDate") LocalDate ldate){
 		
 		List<Reservation> list=iReservationService.getAllReservation(ldate);
 		

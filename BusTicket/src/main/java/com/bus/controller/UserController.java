@@ -24,7 +24,7 @@ public class UserController {
 	private IUserServiceImpl userService;
 
 	@PostMapping("/bus/user")
-	public ResponseEntity<User> addUserHandler(@RequestBody User user) {
+	public ResponseEntity<User> addUserHandler(@org.springframework.web.bind.annotation.RequestBody User user) {
 
 		User user2 = userService.addUser(user);
 

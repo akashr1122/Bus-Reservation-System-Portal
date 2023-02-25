@@ -10,6 +10,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,6 +19,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,32 +34,35 @@ public class Bus {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@NotNull(message = "Bus ID cannot be null")
 	private Integer busId;
 
-	@NotNull
+	@NotNull(message = "Bus name cannot be null")
 	private String busName;
-	
-	
+
 	@Enumerated(EnumType.STRING)
 	private BusType busType;
 
-
-	@NotNull
+	@NotNull(message = "Route from cannot be null")
 	private String routeFrom;
-	@NotNull
+
+	@NotNull(message = "Route to cannot be null")
 	private String routeTo;
-	@NotNull(message = "arrivalTime can't be null")
+
+	@NotNull(message = "Arrival time cannot be null")
 	@JsonFormat(pattern = "HH:mm:ss", timezone = "UTC")
-	private Time arrivalTime = Time.valueOf("00:00:00");
+	private Time arrivalTime;
 
-	@NotNull
+	@NotNull(message = "Number of seats cannot be null")
+	@Positive(message = "Number of seats must be positive")
 	private Integer seats;
-	@NotNull
-	private Integer avaialableSeats;
 
-	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-	private Route route;
+	@NotNull(message = "Number of available seats cannot be null")
 	
+	private Integer availableSeats;
+
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Route route;
 	 
 	
 	

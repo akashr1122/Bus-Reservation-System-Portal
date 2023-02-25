@@ -49,7 +49,7 @@ async function postData(url = '', data = {}) {
     });
 
 
-    from.forEach(element => {
+    to.forEach(element => {
         To.append(creatOption(element));
     });
 
@@ -78,6 +78,9 @@ async function postData(url = '', data = {}) {
 async function AvailableBusInRoot() {
     let from = document.getElementById("From").value;
     let to = document.getElementById("To").value;
+    if (from == "hide" || to == "hide") {
+        return;
+    }
     let bus = await weekdata(`http://localhost:8080/bus/route/${from}/${to}`);
     function createElement(ele) {
         let ele2 = document.createElement(ele)
@@ -87,7 +90,7 @@ async function AvailableBusInRoot() {
     let card = document.getElementById("container");
     card.innerHTML = "";
     if (bus.length == 0) {
-        card.innerHTML = "<h2>Sorry Bus not Available</h2>"
+        card.innerHTML = `<div class="t-center "><div class="error-view oops-page"><img src="https://www.redbus.in/images/no_bus.png"><div class="oops-wrapper"><h3>Oops! No buses found.</h3><div class="message-container"><div class="msg-c-msg">No routes available</div></div></div></div></div>`;
     }
     bus.forEach(ele => {
 
@@ -105,11 +108,11 @@ async function AvailableBusInRoot() {
         let rout = createElement("div");
         rout.setAttribute("class", "rout_");
         let from = createElement("H3");
-        from.innerText = ele.routeFrom;
+        from.innerText = ele.routeFrom.charAt(0).toUpperCase() + ele.routeFrom.slice(1);;
         let I = createElement("i");
         I.setAttribute("class", "fa-solid fa-arrow-right-arrow-left red");
         let to = createElement("h3");
-        to.innerText = ele.routeTo;
+        to.innerText = ele.routeTo.charAt(0).toUpperCase() + ele.routeTo.slice(1);;
         rout.append(from, I, to)
 
         let busName = createElement("h2");
@@ -117,7 +120,10 @@ async function AvailableBusInRoot() {
 
         let avaialableSeats = createElement("h3");
         avaialableSeats.innerText = "Available seats :- " + ele.avaialableSeats;
-        busName.innerText = ele.busName;
+        busName.innerText ="Name :- "+ ele.busName.charAt(0).toUpperCase() + ele.busName.slice(1);
+
+        let arrivalTime=createElement("h3");
+        arrivalTime.innerText="Arrival Time :- "+ele.arrivalTime;
         let btn = createElement("button");
         btn.setAttribute("class", "book-button");
         btn.innerText = "Book Now";
@@ -136,7 +142,7 @@ async function AvailableBusInRoot() {
                 });
         }
 
-        card_content.append(rout, busName, avaialableSeats, btn);
+        card_content.append(rout, busName, avaialableSeats,arrivalTime, btn);
 
         cardDiv.append(heroImg, card_content);
         card.append(cardDiv);

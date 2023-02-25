@@ -120,10 +120,10 @@ async function AvailableBusInRoot() {
 
         let avaialableSeats = createElement("h3");
         avaialableSeats.innerText = "Available seats :- " + ele.avaialableSeats;
-        busName.innerText ="Name :- "+ ele.busName.charAt(0).toUpperCase() + ele.busName.slice(1);
+        busName.innerText = "Name :- " + ele.busName.charAt(0).toUpperCase() + ele.busName.slice(1);
 
-        let arrivalTime=createElement("h3");
-        arrivalTime.innerText="Arrival Time :- "+ele.arrivalTime;
+        let arrivalTime = createElement("h3");
+        arrivalTime.innerText = "Arrival Time :- " + ele.arrivalTime;
         let btn = createElement("button");
         btn.setAttribute("class", "book-button");
         btn.innerText = "Book Now";
@@ -142,7 +142,7 @@ async function AvailableBusInRoot() {
                 });
         }
 
-        card_content.append(rout, busName, avaialableSeats,arrivalTime, btn);
+        card_content.append(rout, busName, avaialableSeats, arrivalTime, btn);
 
         cardDiv.append(heroImg, card_content);
         card.append(cardDiv);

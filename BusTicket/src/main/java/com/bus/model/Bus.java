@@ -1,9 +1,6 @@
 package com.bus.model;
 
 import java.sql.Time;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.bus.paylord.BusType;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -17,7 +14,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;

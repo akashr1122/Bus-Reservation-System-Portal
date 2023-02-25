@@ -25,23 +25,12 @@ public class IReservationServiceImpl implements IReservationService {
     
 	@Override
 	public String addReservation(Reservation reservation) throws ReservationNotFoundException {
-		// TODO Auto-generated method stub
 		
 		String string="Reservation not added successfully";
 		
-		reservation.setBus(busDao.findById(reservation.getBus().getBusId()).get());
-	
-		reservation.setReservationDate(Date.valueOf(LocalDate.now()));
-		
-		reservation.setSource(reservation.getBus().getRouteFrom());
-		
-		reservation.setDestination(reservation.getBus().getRouteTo());
-		
-		reservationDao.save(reservation);
-		
-		string="Reservation added successfully";
-		
 		return string;
+		
+	
 	}
 
 	@Override

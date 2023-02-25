@@ -30,7 +30,6 @@ public class Bus {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@NotNull(message = "Bus ID cannot be null")
 	private Integer busId;
 
 	@NotNull(message = "Bus name cannot be null")

@@ -1,5 +1,6 @@
 package com.bus.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,7 +28,8 @@ public class Admin {
 	
 	@NotNull
 	@NotBlank
-	private String  name;
+	@Column(unique = true)
+	private String  username;
 	
 	@NotNull
 	@NotBlank

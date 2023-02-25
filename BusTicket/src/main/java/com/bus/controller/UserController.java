@@ -11,12 +11,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.bus.model.User;
-import com.bus.service.IUserService;
 import com.bus.service.IUserServiceImpl;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import jakarta.validation.Valid;
+
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -26,7 +27,7 @@ public class UserController {
 	private IUserServiceImpl userService;
 
 	@PostMapping("/bus/user")
-	public ResponseEntity<User> addUserHandler(@RequestBody User user) {
+	public ResponseEntity<User> addUserHandler( @Valid @RequestBody User user) {
 
 		User user2 = userService.addUser(user);
 
@@ -35,7 +36,7 @@ public class UserController {
 	}
 
 	@PutMapping("/bus/user")
-	public ResponseEntity<User> updateUserHandler(@RequestBody User user) {
+	public ResponseEntity<User> updateUserHandler(@Valid @RequestBody User user) {
 
 		User user2 = userService.updateUser(user);
 

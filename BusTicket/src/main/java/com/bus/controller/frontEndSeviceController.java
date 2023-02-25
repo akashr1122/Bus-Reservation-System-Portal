@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bus.frontEnd.frontEndService;
 import com.bus.model.Bus;
 
+import jakarta.validation.Valid;
+
 @RestController
 @CrossOrigin(origins = "*")
 public class frontEndSeviceController {
@@ -22,7 +24,7 @@ public class frontEndSeviceController {
 	
 	
 	@GetMapping("/bus/route/{routeFrom}/{routeTo}")
-	public ResponseEntity<List<Bus>> getAllBusByRoute(@PathVariable(name = "routeFrom") String from,@PathVariable(name = "routeTo") String to){
+	public ResponseEntity<List<Bus>> getAllBusByRoute( @Valid @PathVariable(name = "routeFrom") String from,@PathVariable(name = "routeTo") String to){
 		
 		List<Bus> bus=endService.getAllBusByRoute(from, to);
 		

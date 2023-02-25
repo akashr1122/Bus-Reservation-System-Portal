@@ -21,6 +21,8 @@ import com.bus.model.Bus;
 import com.bus.paylord.BusType;
 import com.bus.service.IBusService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/busticket")
 public class BusServiceController {
@@ -30,7 +32,7 @@ public class BusServiceController {
 	
 	
 	@PostMapping("/bus")
-	public ResponseEntity<Bus> addBusHandler(@RequestBody Bus bus){
+	public ResponseEntity<Bus> addBusHandler(@Valid @RequestBody Bus bus){
 		
 		Bus addBus=busService.addBus(bus);
 		
@@ -39,7 +41,7 @@ public class BusServiceController {
 	}
 	
 	@PutMapping("/bus")
-	public ResponseEntity<Bus> updateBusHandler(@RequestBody Bus bus) throws BusException{
+	public ResponseEntity<Bus> updateBusHandler( @Valid @RequestBody Bus bus) throws BusException{
 		
 		Bus updateBus = busService.updateBus(bus);
 		 
@@ -75,7 +77,7 @@ public class BusServiceController {
 	}
 	
 	@GetMapping("/bus")
-	public ResponseEntity<List<Bus>> getBusByTypeHandler(@RequestParam("type") String busType) throws BusException{
+	public ResponseEntity<List<Bus>> getBusByTypeHandler( @Valid @RequestParam("type") String busType) throws BusException{
 		
 		List<Bus>  getBus = busService.getAllBusesByType(BusType.valueOf(busType.toUpperCase()));
 		 

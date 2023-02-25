@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bus.model.FeedBack;
 import com.bus.service.IFeedBackService;
 
+import jakarta.validation.Valid;
+
 
 @RestController
 public class FeedBackController {
@@ -23,7 +25,7 @@ public class FeedBackController {
 	private IFeedBackService feedBackService;
 
 	@PostMapping("/bus/feedback")
-	public ResponseEntity<FeedBack> addFeedBackHandler(@RequestBody FeedBack feedBack) {
+	public ResponseEntity<FeedBack> addFeedBackHandler( @Valid @RequestBody FeedBack feedBack) {
 
 		FeedBack fBack = feedBackService.addFeedBack(feedBack);
 
@@ -32,7 +34,7 @@ public class FeedBackController {
 	}
 
 	@PutMapping("/bus/feedback")
-	public ResponseEntity<FeedBack> updateFeedBackHandler(@RequestBody FeedBack feedBack) {
+	public ResponseEntity<FeedBack> updateFeedBackHandler( @Valid @RequestBody FeedBack feedBack) {
 
 		FeedBack fBack = feedBackService.updateFeedBack(feedBack);
 
@@ -41,7 +43,7 @@ public class FeedBackController {
 	}
 
 	@GetMapping("/bus/feedback/{fId}")
-	public ResponseEntity<FeedBack> getFeedBackByIdHandler(@PathVariable Integer fId) {
+	public ResponseEntity<FeedBack> getFeedBackByIdHandler( @Valid @PathVariable Integer fId) {
 
 		FeedBack fBack = feedBackService.viewFeedBack(fId);
 

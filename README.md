@@ -1,7 +1,7 @@
 # Bus Reservation System Portal 
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/akashr1122/skillful-shirt-5398/main/FrontEnd/dist/Icon.png"width="250" height="200" src="">
+  <img src="https://raw.githubusercontent.com/akashr1122/skillful-shirt-5398/main/FrontEnd/dist/Icon.png"width="250" height="200" >
 </p>
 
 
@@ -72,6 +72,8 @@
 ## **ER Diagram**
 
 
-
+<p align="center">
+  <img src="https://github.com/akashr1122/skillful-shirt-5398/blob/main/FrontEnd/ER_.png?raw=true">
+</p>
 
 

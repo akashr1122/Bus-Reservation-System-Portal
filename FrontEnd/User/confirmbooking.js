@@ -56,14 +56,26 @@ function confirmbook(bus) {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     try {
-      let Link = await fetch(`http://localhost:8080/reservation/add/${localStorage.getItem(
-        "userId"
-      )}/${bus.busId}`);
+      let Link = await fetch(
+        `http://localhost:8080/reservation/add/${localStorage.getItem(
+          "userId"
+        )}/${bus.busId}`
+      );
       let Data = await Link.json();
       console.log(Data);
+      showSpanu1(
+        `Enjoy the Ride !!! Reservation Successful! for the Bus ${bus.busName} `,
+        0
+      );
+      closePopup();
       return Data;
     } catch (err) {
       console.log(err);
+      showSpanu1(
+        `Try again !!! Reservation unsuccessful! for ${bus.busName}`,
+        1
+      );
+      closePopup();
     }
   });
 
@@ -84,3 +96,24 @@ function closePopup() {
 }
 
 //popup end
+
+//end of fetch
+
+document.getElementById("my-span-u1").addEventListener("click", function () {
+  this.style.display = "none";
+});
+
+//end of span tag
+
+//span tag showing function
+
+function showSpanu1(message, a) {
+  document.getElementById("my-span-u1").style.display = "inline-block";
+  document.getElementById("my-span-u1").innerText = message;
+
+  if (a == 1) {
+    document.getElementById("my-span-u1").style.backgroundColor = "red";
+  } else {
+    document.getElementById("my-span-u1").style.backgroundColor = "limegreen";
+  }
+}

@@ -2,7 +2,9 @@ package com.bus.model;
 
 import java.sql.Date;
 
+import com.bus.paylord.BusDto;
 import com.bus.paylord.Status;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -11,11 +13,9 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -44,7 +44,7 @@ public class Reservation {
 	private String reservationType;
 
 	@NotNull(message = "Reservation date is required")
-	@PastOrPresent(message = "Reservation date must be in the past or present")
+	@JsonFormat(pattern = "dd-MM-yyyy", timezone = "UTC")
 	private Date reservationDate;
 
 	@NotBlank(message = "Source is required")

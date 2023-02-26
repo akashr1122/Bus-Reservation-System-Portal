@@ -1,246 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <title>BusTicket</title>
-        <meta charset="UTF-8">
-        <link rel="icon" href="/animated-form/dist/Icon.png">
-        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css'>
-        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'>
-        <script src="https://kit.fontawesome.com/3a2d9fc35d.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="./admin.css">
+  <head>
+    <meta charset="UTF-8" />
+    <title>BusTicket</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/animated-form/dist/Icon.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" />
+    <script src="https://kit.fontawesome.com/3a2d9fc35d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./admin.css" />
+  </head>
 
-    </head>
-
-    <body>
-
-        <nav class="navbar navbar-expand-custom navbar-mainbg">
-            <a class="navbar-brand navbar-logo" href="#">
-                <img id="logo" src="/animated-form/dist/Left_Logo_Nav.png" alt="">
+  <body>
+    <nav class="navbar navbar-expand-custom navbar-mainbg">
+      <a class="navbar-brand navbar-logo" href="#">
+        <img id="Name" src="/dist/Logo.png" alt="">
+        <img id="logo" src="/dist/Left_logo2.png" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <i class="fas fa-bars text-white"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <div class="hori-selector">
+            <div class="left"></div>
+            <div class="right"></div>
+          </div>
+          <li class="nav-item active">
+            <a class="nav-link" href="#" onclick="services(event)" data-target=".add_bus"><i class="fa-solid fa-bus"
+                data-target=".add_bus"></i>Add New Bus
             </a>
-            <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <i class="fas fa-bars text-white"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <div class="hori-selector">
-                        <div class="left"></div>
-                        <div class="right"></div>
-                    </div>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#" onclick="services(event)" data-target=".add_bus"><i
-                                class="fa-solid fa-bus" data-target=".add_bus"></i>Add New Bus
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0);" onclick="services(event)"
-                            data-target=".Add_rout"><i class="fa-solid fa-road-bridge" data-target=".Add_rout"></i>Add
-                            Rout</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="services(event)" data-target=".update_bus">
-                            <i class="fa-solid fa-bus" data-target=".update_bus"></i>Update Bus Details</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="services(event)" data-target=".all_bus">
-                            <i class="fa-solid fa-bus" data-target="all_bus"></i>All Buses</a>
-                    </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="services(event),getAll()" data-target=".all_bus">
+              <i class="fa-solid fa-bus" data-target=".all_bus"></i>All Buses</a>
+          </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>All Rout</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Documents</a>
-                    </li>
-                </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);" onclick="services(event)" data-target=".Add_rout"><i
+                class="fa-solid fa-road-bridge" data-target=".Add_rout"></i>Add Rout</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);"><i class="fa-solid fa-road-bridge"></i>All Rout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);" onclick="services(event)" data-target=".All_user"><i
+                class="fa-regular fa-user" data-target=".All_user"></i>All Users</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- partial -->
+
+    <!-----------Add new bus--------->
+    <div class="service">
+      <div id="Contant" class="add_bus contant active">
+        <span id="my-span2" style="display: none"></span>
+        <form id="my-form-add">
+
+
+          <label for="busName">Bus Name:</label>
+          <input type="text" id="busName" name="busName">
+
+          <label for="busType">Bus Type:</label>
+          <select id="busType" name="busType">
+            <option value="AC_SEATER">AC Seater</option>
+            <option value="NONAC_SEATER">Non-AC Seater</option>
+            <option value="AC_SLEEPER">AC Sleeper</option>
+            <option value="NONAC_SLEEPER">Non-AC Sleeper</option>
+            <option value="VOLVO_AC">Volvo AC</option>
+          </select>
+
+          <label for="routeFrom">Route From:</label>
+          <input type="text" id="routeFrom" name="routeFrom">
+
+          <label for="routeTo">Route To:</label>
+          <input type="text" id="routeTo" name="routeTo">
+
+          <label for="arrivalTime">Arrival Time:</label>
+          <input type="time" id="arrivalTime" name="arrivalTime" step="2">
+
+          <label for="seats">Seats:</label>
+          <input type="number" id="seats" name="seats">
+
+          <label for="availableSeats">Available Seats:</label>
+          <input type="number" id="availableSeats" name="availableSeats">
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
+      <!-- Add routes  -->
+      <div id="Contant" class="Add_rout contant">
+        <form class="rout_form">
+          <div id="Selection">
+            <div>
+              <span class="custom-dropdown big">
+                <input type="text" id="From" placeholder="From" />
+              </span>
             </div>
-        </nav>
-        <!-- partial -->
-
-
-        <!-----------Add new bus--------->
-        <div class="service">
-            <div id="Contant" class="add_bus contant active">
-                <form action="">
-                    <input type="text" placeholder="Bus Name">
-                    <input type="text" placeholder="Bus Number">
-                    <input type="text" placeholder="Bus Driver">
-
-
-                    <div id="Selection">
-
-                        <div>
-                            <span class="custom-dropdown big">
-                                <select id="From">
-                                    <option value="null">--From--</option>
-                                    <option value="2010">Delhi</option>
-                                    <option value="2011">Agra</option>
-                                    <option value="2012">Prayagraj</option>
-                                    <option value="2013">Kanpur</option>
-                                    <option value="hide">--To--</option>
-                                    <option value="2010">Delhi</option>
-                                    <option value="2011">Agra</option>
-                                    <option value="2012">Prayagraj</option>
-                                    <option value="2013">Kanpur</option>
-                                    <option value="hide">--To--</option>
-                                    <option value="2010">Delhi</option>
-                                    <option value="2011">Agra</option>
-                                    <option value="2012">Prayagraj</option>
-                                    <option value="2013">Kanpur</option>
-                                </select>
-                            </span>
-                        </div>
-
-                        <div>
-                            <span class="custom-dropdown big">
-                                <select id="To">
-                                    <option value="null">--To--</option>
-                                    <option value="2010">Delhi</option>
-                                    <option value="2011">Agra</option>
-                                    <option value="2012">Prayagraj</option>
-                                    <option value="2013">Kanpur</option>
-                                    <option value="hide">--To--</option>
-                                    <option value="2010">Delhi</option>
-                                    <option value="2011">Agra</option>
-                                    <option value="2012">Prayagraj</option>
-                                    <option value="2013">Kanpur</option>
-                                    <option value="hide">--To--</option>
-                                    <option value="2010">Delhi</option>
-                                    <option value="2011">Agra</option>
-                                    <option value="2012">Prayagraj</option>
-                                    <option value="2013">Kanpur</option>
-                                </select>
-                            </span>
-                        </div>
-                        <div>
-                            <input type="date">
-                        </div>
-
-                    </div>
-                    <button class="btn3" type="submit">Submit</button>
-                </form>
-
-
-
-
-
+            <span><i class="fa-solid fa-arrow-right-arrow-left"></i></span>
+            <div>
+              <span class="custom-dropdown big">
+                <span class="custom-dropdown big">
+                  <input type="text" id="To" placeholder="To" />
+                </span>
+              </span>
             </div>
-
-
-            <!-------Update bus----------->
-
-
-            <div id="Contant" class="update_bus contant">
-                <form action="">
-                    <input type="text" placeholder="Bus Name">
-                    <input type="text" placeholder="Bus Number">
-                    <input type="text" placeholder="Bus Driver">
-
-
-                    <div id="Selection">
-
-                        <div>
-                            <span class="custom-dropdown big">
-                                <select id="From">
-                                    <option value="hide">--To--</option>
-                                    <option value="2010">Delhi</option>
-                                    <option value="2011">Agra</option>
-                                    <option value="2012">Prayagraj</option>
-                                    <option value="2013">Kanpur</option>
-                                    <option value="hide">--To--</option>
-                                    <option value="2010">Delhi</option>
-                                    <option value="2011">Agra</option>
-                                    <option value="2012">Prayagraj</option>
-                                    <option value="2013">Kanpur</option>
-                                    <option value="hide">--To--</option>
-                                    <option value="2010">Delhi</option>
-                                    <option value="2011">Agra</option>
-                                    <option value="2012">Prayagraj</option>
-                                    <option value="2013">Kanpur</option>
-                                </select>
-                            </span>
-                        </div>
-
-                        <div>
-                            <span class="custom-dropdown big">
-                                <select id="To">
-                                    <option value="hide">--To--</option>
-                                    <option value="2010">Delhi</option>
-                                    <option value="2011">Agra</option>
-                                    <option value="2012">Prayagraj</option>
-                                    <option value="2013">Kanpur</option>
-                                    <option value="hide">--To--</option>
-                                    <option value="2010">Delhi</option>
-                                    <option value="2011">Agra</option>
-                                    <option value="2012">Prayagraj</option>
-                                    <option value="2013">Kanpur</option>
-                                    <option value="hide">--To--</option>
-                                    <option value="2010">Delhi</option>
-                                    <option value="2011">Agra</option>
-                                    <option value="2012">Prayagraj</option>
-                                    <option value="2013">Kanpur</option>
-                                </select>
-                            </span>
-                        </div>
-                        <div>
-                            <input type="date">
-                        </div>
-
-
-                    </div>
-                    <button class="btn3" type="submit">Submit</button>
-                </form>
-
+            <div>
+              <input type="number" id="Distence" placeholder="Distence"/>
             </div>
+          </div>
+          <div>
+            <button class="btn3" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="All_user contant">
+        <div class="UserCard"></div>
+      </div>
 
 
-            <div id="Contant" class="Add_rout contant">
-                <form action="">
-                    <div id="Selection">
-
-                        <div>
-                            <span class="custom-dropdown big">
-                                <input type="text" placeholder="From">
-                            </span>
-                        </div>
-                        <span><i class="fa-solid fa-arrow-right-arrow-left"></i></span>
-                        <div>
-                            <span class="custom-dropdown big">
-                                <span class="custom-dropdown big">
-                                    <input type="text" placeholder="To">
-                                </span>
-                            </span>
-                        </div>
-                        <div>
-                            <input type="date">
-                        </div>
 
 
-                    </div>
-                    <div>
-                        <button class="btn3" type="submit">Submit</button>
-                    </div>
-
-                </form>
-
-            </div>
-
-            <div id="Contant" class="all_bus contant">
-               <div class="card">
-                <img src="/dist/background.png" alt="">
-
-               </div>
-
-            </div>
+      <div id="GetAll" class="all_bus contant">
+        <span id="my-span" style="display: none"></span>
+        <div class="card">
+          <div></div>
+          <h3 id="error">Bus Not Available</h3>
+          <!-- <img src="/dist/background.png" alt="" /> -->
         </div>
+      </div>
+      <!-- <button onclick="openPopup()">Open Popup</button> -->
+      <div id="popup" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closePopup()">&times;</span>
+          <p>This is the popup content</p>
+        </div>
+      </div>
+    </div>
 
-
-
-    </body>
+  </body>
 
 </html>
 
-<script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="./admin.js"></script>
+<script src="./admin1.js"></script>

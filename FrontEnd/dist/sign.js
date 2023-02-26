@@ -1,5 +1,3 @@
-let currentuser = 0;
-
 document.getElementById("sign-in-fun").addEventListener("click", function () {
   signinfetch();
 });
@@ -8,34 +6,56 @@ document.getElementById("sign-in-fun").addEventListener("click", function () {
 
 function signinfetch() {
   // Define the login data object
-  currentuser = document.getElementById("sign-user").value;
-  console.log(currentuser);
-  const logindata = {
-    username: document.getElementById("sign-user").value,
-    password: document.getElementById("sign-password").value,
-  };
 
   // Define the fetch options
   const options = {
-    method: "POST",
-    body: JSON.stringify(logindata),
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
   };
 
   // Send the fetch request to the server
-  fetch("http://localhost:8080/busticket/login", options)
-    .then((response) => {
-      if (response.ok) {
-        // If the login is successful, redirect to user.html
-        window.location.href = "/User/user.html";
-        return "Login successful";
+  fetch(
+    `http://localhost:8080/busticket/login/${
+      document.getElementById("sign-user").value
+    }/${document.getElementById("sign-password").value}`,
+    options
+  )
+    .then((res) => res.json())
+    .then((resu) => {
+      if (resu.message) {
+        let mes = resu.message;
+        showSpani1(mes);
+        console.log(resu.message);
+      } else if (resu.admin == true) {
+        console.log(resu.username);
+        console.log(resu);
+        window.location.href = "/admin/admin.html";
+        localStorage.setItem("user", resu.username);
+        localStorage.setItem("userId", resu.userId);
       } else {
-        throw new Error("Login failed");
+        console.log(resu.username);
+        console.log(resu);
+
+        window.location.href = "/User/user.html";
+        localStorage.setItem("user", resu.username);
+        localStorage.setItem("userId", resu.userId);
       }
-    })
-    .then((message) => console.log(message))
-    .catch((error) => console.error(error));
+      console.log(resu);
+    });
 }
 //end of fetch
+
+document.getElementById("my-span-i1").addEventListener("click", function () {
+  this.style.display = "none";
+});
+
+//end of span tag
+
+//span tag showing function
+
+function showSpani1(message) {
+  document.getElementById("my-span-i1").style.display = "inline-block";
+  document.getElementById("my-span-i1").innerText = message;
+}

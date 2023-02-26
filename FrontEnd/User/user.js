@@ -107,17 +107,20 @@ async function AvailableBusInRoot() {
     btn.setAttribute("class", "book-button");
     btn.innerText = "Book Now";
     btn.onclick = function () {
-      //console.log(ele);
-      let data = {
-        reservationType: "active",
-        bus: {
-          busId: ele.busId,
-        },
-      };
-      //console.log(data)
-      postData("http://localhost:8080/reservation/add", data).then((data) => {
-        console.log(data); // JSON data parsed by `data.json()` call
-      });
+      console.log(ele);
+      confirmbook(ele);
+
+      console.log(ele);
+      // let data = {
+      //   reservationType: "active",
+      //   bus: {
+      //     busId: ele.busId,
+      //   },
+      // };
+      // //console.log(data)
+      // postData("http://localhost:8080/reservation/add", data).then((data) => {
+      //   console.log(data); // JSON data parsed by `data.json()` call
+      // });
     };
 
     card_content.append(rout, busName, avaialableSeats, arrivalTime, btn);
@@ -125,4 +128,9 @@ async function AvailableBusInRoot() {
     cardDiv.append(heroImg, card_content);
     card.append(cardDiv);
   });
+}
+
+//name of sign in
+if (localStorage.getItem("user")) {
+  document.getElementById("search").innerText = localStorage.getItem("user");
 }

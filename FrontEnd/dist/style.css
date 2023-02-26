@@ -359,3 +359,15 @@ body {
     font-size: 2rem;
   }
 }
+
+#my-span-i1 {
+  font-weight: bold;
+  /* background-color: red; */
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  /* border: double;
+  border-color: indianred; */
+  color: red;
+}

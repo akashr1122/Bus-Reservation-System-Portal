@@ -21,6 +21,8 @@ import lombok.AllArgsConstructor;
 		@Id
 		@Column(unique = true)
 		private Integer userId;
+		
+		private String username;
 
 		private String uuid;
 

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bus.model.Reservation;
+import com.bus.model.User;
 import com.bus.service.IReservationService;
 
 import jakarta.validation.Valid;
@@ -27,12 +28,12 @@ public class ReservationServiceController {
 	@Autowired
 	private IReservationService iReservationService;
 
-	@PostMapping("/reservation/add")
-	public ResponseEntity<String> addReservationController( @Valid @RequestBody Reservation reservation) {
+	@GetMapping("/reservation/add/{uId}/{bId}")
+	public ResponseEntity<User> addReservationController( @PathVariable Integer uId, @PathVariable Integer bId) {
 
-		String string = iReservationService.addReservation(reservation);
+		User user = iReservationService.addReservation(uId, bId);
 
-		return new ResponseEntity<String>(string, HttpStatus.CREATED);
+		return new ResponseEntity<User>(user, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/reservation/update")

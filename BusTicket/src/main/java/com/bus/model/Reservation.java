@@ -1,8 +1,8 @@
 package com.bus.model;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 
-import com.bus.paylord.BusDto;
 import com.bus.paylord.Status;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -44,8 +44,8 @@ public class Reservation {
 	private String reservationType;
 
 	@NotNull(message = "Reservation date is required")
-	@JsonFormat(pattern = "dd-MM-yyyy", timezone = "UTC")
-	private Date reservationDate;
+	@NotNull
+	private LocalDateTime reservationDate;
 
 	@NotBlank(message = "Source is required")
 	@Size(min = 3, max = 50, message = "Source must be between 3 and 50 characters")

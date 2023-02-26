@@ -49,7 +49,7 @@ public class LoginServiceImpl  implements LoginService {
 
 				Boolean isAdmin = false;
 				
-				CurrentUserSession currentUserSession = new CurrentUserSession(existingUser.getUserId(), key, isAdmin,LocalDateTime.now());
+				CurrentUserSession currentUserSession = new CurrentUserSession(existingUser.getUserId(),existingUser.getUsername(), key, isAdmin,LocalDateTime.now());
 						
 
 				cuDao.save(currentUserSession);
@@ -88,7 +88,7 @@ public class LoginServiceImpl  implements LoginService {
 
 					Boolean isAdmin = true;
 
-					CurrentUserSession currentUserSession = new CurrentUserSession(existingAdmin.getAId(), key, isAdmin,LocalDateTime.now());
+					CurrentUserSession currentUserSession = new CurrentUserSession(existingAdmin.getAId(),existingAdmin.getUsername(), key, isAdmin,LocalDateTime.now());
 					
 
 					cuDao.save(currentUserSession);

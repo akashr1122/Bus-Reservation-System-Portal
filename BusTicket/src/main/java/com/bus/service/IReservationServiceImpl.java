@@ -1,15 +1,21 @@
 package com.bus.service;
 
+import com.bus.exception.BusException;
 import com.bus.exception.ReservationNotFoundException;
+import com.bus.exception.UserNotFoundException;
+import com.bus.model.Bus;
 import com.bus.model.Reservation;
+import com.bus.model.User;
+import com.bus.paylord.Status;
 import com.bus.repository.BusDao;
 import com.bus.repository.ReservationDao;
+import com.bus.repository.UserDao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,16 +28,27 @@ public class IReservationServiceImpl implements IReservationService {
     @Autowired
     private BusDao busDao;
     
+    @Autowired 
+    private UserDao userDao;
     
-	@Override
-	public String addReservation(Reservation reservation) throws ReservationNotFoundException {
-		
-		String string="Reservation not added successfully";
-		
-		return string;
-		
-	
+    @Override
+	public User addReservation(Integer uId, Integer bId) throws ReservationNotFoundException {
+    	
+    	   
+    	 User user = userDao.findById(uId).orElseThrow(()-> new UserNotFoundException("user not found which id is "+uId));
+    	 Bus bus  = busDao.findById(bId).orElseThrow(()-> new BusException("bus not found which id is "+bId));
+    	      
+    	 Reservation reservation = new Reservation(0, Status.Active, "OnlineTickting", LocalDateTime.now(),bus.getRouteFrom(),bus.getRouteTo(), bus);
+    	   user.setReservation(reservation);
+    	   
+	       reservationDao.save(reservation);
+    	       userDao.save(user);
+    	  
+    	
+    	
+		return user;
 	}
+	
 
 	@Override
 	public String updateReservation(Reservation reservation) throws ReservationNotFoundException {
@@ -106,6 +123,8 @@ public class IReservationServiceImpl implements IReservationService {
 		
 		return reservations;
 	}
+
+	
     
     
     

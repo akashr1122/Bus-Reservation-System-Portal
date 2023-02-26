@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bus.paylord.CurrentUserSession;
@@ -19,8 +19,12 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 	
-	@PostMapping("/busticket/login")
-	public ResponseEntity<CurrentUserSession> loginHandler(@RequestBody LoginDto loginDto){
+	@GetMapping("/busticket/login/{username}/{password}")
+	public ResponseEntity<CurrentUserSession> loginHandler(@PathVariable String username,@PathVariable String password ){
+		
+		LoginDto loginDto = new LoginDto();
+		  loginDto.setPassword(password);
+		  loginDto.setUsername(username);
 		 
 		CurrentUserSession lDto =  loginService.login(loginDto);
 		 return new ResponseEntity<CurrentUserSession>(lDto,HttpStatus.ACCEPTED);

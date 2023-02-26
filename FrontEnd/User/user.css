@@ -281,3 +281,16 @@ span #search {
 }
 
 /* end of popup css */
+
+/* span popup properties */
+
+#my-span-u1 {
+  font-weight: bold;
+  /* background-color: red; */
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  /* border: double;
+  border-color: indianred; */
+}

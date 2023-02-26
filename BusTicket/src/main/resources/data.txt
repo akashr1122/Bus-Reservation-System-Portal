@@ -1,6 +1,8 @@
 hi
 
 
+bus dummy data
+
 insert into bus values(1,'13:12:00',20,'ak','AC_SLEEPER','patna','vaishali',30);
 
 insert into bus values(2,'13:12:00',20,'ak1','AC_SLEEPER','patna','mumbai',30,NULL);
@@ -23,4 +25,20 @@ insert into bus values(10,'13:12:00',20,'ak7','AC_SLEEPER','delhi','lucknow',30,
 
 insert into bus values(11,'13:12:00',20,'ak8','AC_SLEEPER','delhi','Bhubaneswar',30,NULL);
      
+admin dummy data
+
+insert into admin values(1,'akhil','Akhil@123');
+ 
+insert into admin values(2,'awresh','Awresh@123');
+ 
+insert into admin values(3,'akash','Akash@123');
+  
+insert into admin values(4,'ajitabh','Ajitabh@123');
+   
+insert into admin values(5,'chaitali','Chaitali@123');
+
+user dummy data
+
+
+
 

@@ -88,7 +88,7 @@ public class LoginServiceImpl  implements LoginService {
 
 					Boolean isAdmin = true;
 
-					CurrentUserSession currentUserSession = new CurrentUserSession(existingUser.getUserId(), key, isAdmin,LocalDateTime.now());
+					CurrentUserSession currentUserSession = new CurrentUserSession(existingAdmin.getAId(), key, isAdmin,LocalDateTime.now());
 					
 
 					cuDao.save(currentUserSession);

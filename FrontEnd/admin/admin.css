@@ -171,10 +171,10 @@ i {
 }
 
 #logo {
-  width: 20%;
-  margin: -13px -10px;
+  width: 10%;
+  margin: -13px 0px;
   position: relative;
-  animation: busmove 8s infinite;
+  animation: busmove 15s infinite;
 }
 
 #Selection {
@@ -240,6 +240,9 @@ input[type="date"] {
   font-size: 20px;
   border-radius: 5px;
 }
+#Name {
+  width: 20%;
+}
 
 .contant {
   display: none;
@@ -292,7 +295,7 @@ form div:last-child {
     opacity: 1;
   }
   100% {
-    left: 500px;
+    left: 50%;
   }
 }
 
@@ -301,4 +304,172 @@ form div:last-child {
   font-size: 30px;
   margin-top: 10px;
   margin-right: 20px;
+}
+
+.card > div,
+.UserCard > div {
+  padding: 5%;
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: rgb(0 0 0 / 16%) 0px 10px 36px 0px,
+    rgb(0 0 0 / 6%) 0px 0px 0px 1px;
+}
+
+#update-btn {
+  background-color: #d84f57;
+  font-weight: bold;
+  color: white;
+  width: 80%;
+  margin-top: 10px;
+  padding: 5px 0px;
+}
+.card {
+  border: none;
+}
+
+#error {
+  background-color: white;
+  font-size: 50px;
+  text-align: center;
+}
+
+#delete-btn {
+  background-color: #d84f57;
+  font-weight: bold;
+  color: white;
+  width: 80%;
+  margin-top: 10px;
+  padding: 5px 0px;
+}
+#delete-btn:hover,
+#update-btn:hover {
+  background-color: #3dff67d2;
+}
+#delete-btn:hover {
+  background-color: #ff2600;
+}
+/* popup css */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#pop-form > div {
+  display: flex;
+
+  gap: 20%;
+  width: 75%;
+  justify-content: space-between;
+
+  align-items: end;
+  height: 50px;
+}
+
+#pop-form > div > * {
+  width: 50%;
+}
+
+#pop-form > div > button {
+  border-radius: 10px;
+  width: 20%;
+  padding: 1%;
+  color: white;
+  font-weight: bold;
+  background-color: #d84f57;
+  border: 0px solid white;
+}
+
+#pop-form > div > select {
+  border: 0px solid white;
+  background-color: #efefef;
+  height: 40px;
+  border-radius: 5px;
+  padding-left: 7px;
+}
+
+/* end of popup css */
+
+/* my span message */
+#my-span,
+#my-span2 {
+  font-weight: bold;
+  background-color: limegreen;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  border: double;
+  border-color: aquamarine;
+}
+
+#my-span:hover,
+#my-span2 {
+  cursor: pointer;
+}
+
+/* add new bus css */
+
+#my-form-add {
+  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+}
+
+#my-form-add > * {
+  height: auto;
+  width: 80%;
+}
+
+#my-form-add > input,
+#my-form-add > select {
+  height: 50px;
+  margin: 0px;
+  background-color: #efefef;
+  border: 0px solid white;
+  padding-left: 5px;
+  border-radius: 10px;
+}
+#my-form-add > label {
+  height: 50px;
+  padding-top: 20px;
+}
+
+#my-form-add > button {
+  height: 50px;
+  border: 0px solid white;
+  color: white;
+  font-weight: bold;
+  background-color: #d84f57;
+  border-radius: 10px;
 }

@@ -27,7 +27,6 @@ public class Route {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@NotNull(message = "Route ID cannot be null")
 	private Integer routeId;
 
 	@NotNull(message = "Route from cannot be null")

@@ -424,7 +424,8 @@ function getAllUserInHtml(UserData) {
     contact.innerText = "User Contact : " + ele.contact;
 
     let reservation = document.createElement("span");
-    reservation.innerText = "Reservatin : " + ele.reservation ? ele.reservation : "Pending";
+    let Reserv=ele.reservation.length == 0 ? "Pending" : "Active"
+    reservation.innerText = "Reservation : "+Reserv;
 
 
     let busdelete = document.createElement("button");

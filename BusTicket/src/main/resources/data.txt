@@ -27,18 +27,26 @@ insert into bus values(11,'13:12:00',20,'ak8','AC_SLEEPER','delhi','Bhubaneswar'
      
 admin dummy data
 
-insert into admin values(1,'akhil','Akhil@123');
+insert into admin values(1,'Akhil@123','akhil');
  
-insert into admin values(2,'awresh','Awresh@123');
+insert into admin values(2,'Awresh@123','awresh');
  
-insert into admin values(3,'akash','Akash@123');
+insert into admin values(3,'Akash@123','akash');
   
-insert into admin values(4,'ajitabh','Ajitabh@123');
+insert into admin values(4,'Ajitabh@123','ajitabh');
    
-insert into admin values(5,'chaitali','Chaitali@123');
+insert into admin values(5,'Chaitali@123','chaitali');
 
 user dummy data
 
+insert into user values(1,'9999999999','akhil@gmail.com','Akhil@123','akhilrocks',NULL);
 
+insert into user values(2,'9888888888','akash@gmail.com','Akash@123','akahback',NULL);
+
+insert into user values(3,'9777777777','awresh@gmail.com','Awresh@123','awreshfront',NULL);
+
+insert into user values(4,'9666666666','ajitabh@gmail.com','Ajitabh@123','ajitabhform',NULL);
+
+insert into user values(5,'9555555555','chaitali@gmail.com','Chaitali@123','chaitaliform',NULL);
 
 

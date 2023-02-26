@@ -41,7 +41,6 @@ public class IReservationServiceImpl implements IReservationService {
     	 Reservation reservation = new Reservation(0, Status.Active, "OnlineTickting", LocalDateTime.now(),bus.getRouteFrom(),bus.getRouteTo(), bus);
     	   user.setReservation(reservation);
     	   
-	       reservationDao.save(reservation);
     	       userDao.save(user);
     	  
     	

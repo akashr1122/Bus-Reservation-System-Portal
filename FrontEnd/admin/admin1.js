@@ -19,10 +19,9 @@ function getAll() {
 
 function getAllinHtml(databus) {
   if (databus.length == 0) {
-    return
+    return;
   }
   let cards = document.querySelector(".card");
-
 
   cards.innerHTML = "";
 
@@ -135,7 +134,9 @@ function deleteUserTicket(url1, bId) {
     })
     .catch((error) => {
       mess = `Error while deleting User ticket with ID ${bId}: ${error}`;
-      console.error(`Error while deleting User ticket with ID ${bId}: ${error}`);
+      console.error(
+        `Error while deleting User ticket with ID ${bId}: ${error}`
+      );
       showSpan3(mess);
     });
 }
@@ -160,22 +161,28 @@ function updateBusTicket(bus) {
       <div>
         <label for="busType">Bus Type:</label>
         <select id="busType" name="busType">
-          <option value="AC_SLEEPER" ${bus.busType === "AC_SLEEPER" ? "selected" : ""
-    }>AC Sleeper</option>
-          <option value="AC_SEATER" ${bus.busType === "AC_SEATER" ? "selected" : ""
-    }>AC Seater</option>
-          <option value="VOLVO_AC" ${bus.busType === "VOLVO_AC" ? "selected" : ""
-    }>VOLVO AC</option>
-          <option value="NONAC_SEATER" ${bus.busType === "NONAC_SEATER" ? "selected" : ""
-    }>NONAC SEATER</option>
-          <option value="NONAC_SLEEPER" ${bus.busType === "NONAC_SLEEPER" ? "selected" : ""
-    }>NONAC SLEEPER</option>
+          <option value="AC_SLEEPER" ${
+            bus.busType === "AC_SLEEPER" ? "selected" : ""
+          }>AC Sleeper</option>
+          <option value="AC_SEATER" ${
+            bus.busType === "AC_SEATER" ? "selected" : ""
+          }>AC Seater</option>
+          <option value="VOLVO_AC" ${
+            bus.busType === "VOLVO_AC" ? "selected" : ""
+          }>VOLVO AC</option>
+          <option value="NONAC_SEATER" ${
+            bus.busType === "NONAC_SEATER" ? "selected" : ""
+          }>NONAC SEATER</option>
+          <option value="NONAC_SLEEPER" ${
+            bus.busType === "NONAC_SLEEPER" ? "selected" : ""
+          }>NONAC SLEEPER</option>
         </select>
       </div>
       <div>
         <label for="routeFrom">Route From:</label>
-        <input type="text" id="routeFrom" name="routeFrom" value="${bus.routeFrom
-    }">
+        <input type="text" id="routeFrom" name="routeFrom" value="${
+          bus.routeFrom
+        }">
       </div>
       <div>
         <label for="routeTo">Route To:</label>
@@ -183,8 +190,9 @@ function updateBusTicket(bus) {
       </div>
       <div>
         <label for="arrivalTime">Arrival Time:</label>
-        <input type="time" id="arrivalTime" name="arrivalTime" step="2" value="${bus.arrivalTime
-    }">
+        <input type="time" id="arrivalTime" name="arrivalTime" step="2" value="${
+          bus.arrivalTime
+        }">
       </div>
       <div>
         <label for="seats">Total Seats:</label>
@@ -192,8 +200,9 @@ function updateBusTicket(bus) {
       </div>
       <div>
         <label for="availableSeats">Available Seats:</label>
-        <input type="number" id="availableSeats" name="availableSeats" value="${bus.availableSeats
-    }">
+        <input type="number" id="availableSeats" name="availableSeats" value="${
+          bus.availableSeats
+        }">
       </div>
       <div>
         <button type="submit" id="submitBtn">Submit</button>
@@ -334,9 +343,7 @@ formnewbus.addEventListener("submit", (event) => {
 
   console.log(addbusobject);
   const url = "http://localhost:8080/busticket/bus";
-  put(url, addbusobject)
-
-
+  put(url, addbusobject);
 });
 
 function put(url, data) {
@@ -352,30 +359,25 @@ function put(url, data) {
       //showSpan2("Bus Add Successfully");
       document.getElementById("my-form-add").reset();
       document.getElementById("add_route").reset();
-
     })
     .catch((error) => showSpan2("Bus Not Added " + error));
 }
 //end add new bus
-
-
 
 //----------add rout---------------//
 document.querySelector(".rout_form").addEventListener("submit", function () {
   let rout_from = document.getElementById("From").value;
   let rout_to = document.getElementById("To").value;
   let rout_Distence = document.getElementById("Distence").value;
-  console.log(rout_from, rout_to, rout_Distence)
+  console.log(rout_from, rout_to, rout_Distence);
   let data = {
     routeFrom: rout_from,
     routeTo: rout_to,
-    distance: rout_Distence
-  }
+    distance: rout_Distence,
+  };
   let routUrl = "http://localhost:8080/bus/route";
-  put(routUrl, data)
-})
-
-
+  put(routUrl, data);
+});
 
 //-----------------------For Get User data ------------------------//
 
@@ -387,7 +389,6 @@ function getAllUser() {
       getAllUserInHtml(resu);
     });
 }
-
 
 function getAllUserInHtml(UserData) {
   console.log(UserData);
@@ -424,9 +425,14 @@ function getAllUserInHtml(UserData) {
     contact.innerText = "User Contact : " + ele.contact;
 
     let reservation = document.createElement("span");
-    let Reserv=ele.reservation.length == 0 ? "Pending" : "Active"
-    reservation.innerText = "Reservation : "+Reserv;
+    let Reserv = ele.reservation;
+    if (Reserv != undefined) {
+      Reserv = "Active";
+    } else {
+      Reserv = "Pending";
+    }
 
+    reservation.innerText = "Reservation : " + Reserv;
 
     let busdelete = document.createElement("button");
     busdelete.innerText = "Delete";
@@ -438,7 +444,7 @@ function getAllUserInHtml(UserData) {
       deleteUserTicket("http://localhost:8080/bus/user/", ele.userId);
       setTimeout(() => {
         getAllUser();
-      }, 200)
+      }, 200);
     };
 
     let busdiv = document.createElement("div");
@@ -446,14 +452,7 @@ function getAllUserInHtml(UserData) {
     busdiv.style.margin = "1%";
     busdiv.style.display = "grid";
     busdiv.style.gridTemplateColumns = "2fr 2fr";
-    busdiv.append(
-      userId,
-      userName,
-      email,
-      contact,
-      reservation,
-      busdelete
-    );
+    busdiv.append(userId, userName, email, contact, reservation, busdelete);
 
     cards.append(busdiv);
 
@@ -462,10 +461,7 @@ function getAllUserInHtml(UserData) {
   });
 }
 
-
-
 //-------------------End User Data-----------------------------------------
-
 
 //-----------------------ALL Rout------------------------------------------
 function getAllRout() {
@@ -478,7 +474,7 @@ function getAllRout() {
 }
 
 function getAllRoutInHtml(RoutData) {
-  console.log(RoutData.message)
+  console.log(RoutData.message);
   if (RoutData.message == " Route is not present") {
     return;
   }
@@ -508,7 +504,6 @@ function getAllRoutInHtml(RoutData) {
     let distance = document.createElement("span");
     distance.innerText = "Distance : " + ele.distance;
 
-
     let routdelete = document.createElement("button");
     routdelete.innerText = "Delete";
     routdelete.setAttribute("id", "delete-btn");
@@ -519,7 +514,7 @@ function getAllRoutInHtml(RoutData) {
       deleteRoutTicket("http://localhost:8080/bus/route/", ele.routeId);
       setTimeout(() => {
         getAllRout();
-      }, 200)
+      }, 200);
     };
 
     let routdiv = document.createElement("div");
@@ -527,13 +522,7 @@ function getAllRoutInHtml(RoutData) {
     routdiv.style.margin = "1%";
     routdiv.style.display = "grid";
     routdiv.style.gridTemplateColumns = "2fr 2fr";
-    routdiv.append(
-      routId,
-      from,
-      distance,
-      to,
-      routdelete
-    );
+    routdiv.append(routId, from, distance, to, routdelete);
     cards.append(routdiv);
   });
 }
@@ -551,7 +540,9 @@ function deleteRoutTicket(url1, bId) {
     })
     .catch((error) => {
       mess = `Error while deleting Route ticket with ID ${bId}: ${error}`;
-      console.error(`Error while deleting Route ticket with ID ${bId}: ${error}`);
+      console.error(
+        `Error while deleting Route ticket with ID ${bId}: ${error}`
+      );
       showSpan3(mess);
     });
 }
@@ -559,5 +550,4 @@ function deleteRoutTicket(url1, bId) {
 function logout() {
   localStorage.removeItem("user");
   window.location.href = "/dist/index.html";
-
 }

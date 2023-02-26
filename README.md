@@ -60,7 +60,9 @@
 - Swagger
 - Maven
 - Git & GitHub
-- Spring tool suite
+- Html
+- CSS
+- JavaScript
 
 
 # Lessons Learned

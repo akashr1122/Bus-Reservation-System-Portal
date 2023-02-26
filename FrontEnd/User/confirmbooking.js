@@ -53,47 +53,18 @@ function confirmbook(bus) {
   const cancelBtn = popup.querySelector("#cancelBtn");
 
   // Add event listeners to the form elements
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
-
-    // Send the updated bus object to the server using a fetch() request
-    fetch(
-      `http://localhost:8080/reservation/add/${localStorage.getItem(
+    try {
+      let Link = await fetch(`http://localhost:8080/reservation/add/${localStorage.getItem(
         "userId"
-      )}/${bus.busId}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
-      .then((res) => {
-        res.json();
-        console.log(res);
-      })
-      .then((resu) => {
-        console.log(resu);
-
-        // if (!response.ok) {
-        //   throw new Error(`HTTP error! status: ${response.status}`);
-        // }
-        // mess = `Bus ticket with ID ${bus.busId} updated successfully.`;
-        // console.log(`Bus ticket with ID ${bus.busId} updated successfully.`);
-        // showSpan(mess);
-        // // popup.close(); // close the popup window
-        // closePopup();
-        // getAll();
-      })
-      .catch((error) => {
-        mess = `Error while updating bus ticket with ID ${bus.busId}: ${error}`;
-        console.error(
-          `Error while updating bus ticket with ID ${bus.busId}: ${error}`
-        );
-        showSpan(mess);
-        closePopup();
-        getAll();
-      });
+      )}/${bus.busId}`);
+      let Data = await Link.json();
+      console.log(Data);
+      return Data;
+    } catch (err) {
+      console.log(err);
+    }
   });
 
   cancelBtn.addEventListener("click", () => {

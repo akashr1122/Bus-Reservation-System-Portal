@@ -14,6 +14,20 @@ i {
 .navbar-logo {
   padding: 15px;
   color: #fff;
+  margin-right: -10px;
+}
+/* #Logout{
+  z-index: 99;
+} */
+#userName >button{
+  margin-left: 20px;
+  border: none;
+  background-color: #d84f57;
+  font-weight: bold;
+  color: white;
+}
+.hori-selector .right::before{
+  /* z-index: 99; */
 }
 .navbar {
   position: sticky;
@@ -307,7 +321,8 @@ form div:last-child {
 }
 
 .card > div,
-.UserCard > div {
+.UserCard > div,
+.rout_card > div {
   padding: 5%;
   border-radius: 10px;
   font-weight: bold;
@@ -331,6 +346,7 @@ form div:last-child {
   background-color: white;
   font-size: 50px;
   text-align: center;
+  margin-top: 100px;
 }
 
 #delete-btn {
@@ -421,7 +437,9 @@ form div:last-child {
 
 /* my span message */
 #my-span,
-#my-span2 {
+#my-span2,
+#my-span3,
+#my-span4 {
   font-weight: bold;
   background-color: limegreen;
   width: 100%;
@@ -433,7 +451,9 @@ form div:last-child {
 }
 
 #my-span:hover,
-#my-span2 {
+#my-span2:hover,
+#my-span3:hover,
+#my-span4:hover {
   cursor: pointer;
 }
 

@@ -120,6 +120,26 @@ function deleteBusTicket(url1, bId) {
     });
 }
 
+function deleteUserTicket(url1, bId) {
+  fetch(`${url1}${bId}`, {
+    method: "DELETE",
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      mess = `User ticket with ID ${bId} deleted successfully.`;
+      console.log(`User ticket with ID ${bId} deleted successfully.`);
+      showSpan3(mess);
+      getAll();
+    })
+    .catch((error) => {
+      mess = `Error while deleting User ticket with ID ${bId}: ${error}`;
+      console.error(`Error while deleting User ticket with ID ${bId}: ${error}`);
+      showSpan3(mess);
+    });
+}
+
 //update the bus
 
 function updateBusTicket(bus) {
@@ -275,6 +295,21 @@ function showSpan2(message) {
   document.getElementById("my-span2").innerText = message;
 }
 
+function showSpan3(message) {
+  document.getElementById("my-span3").style.display = "inline-block";
+  document.getElementById("my-span3").innerText = message;
+}
+
+function showSpan4(message) {
+  document.getElementById("my-span4").style.display = "inline-block";
+  document.getElementById("my-span4").innerText = message;
+}
+document.getElementById("my-span4").addEventListener("click", function () {
+  this.style.display = "none";
+});
+document.getElementById("my-span3").addEventListener("click", function () {
+  this.style.display = "none";
+});
 document.getElementById("my-span2").addEventListener("click", function () {
   this.style.display = "none";
 });
@@ -299,12 +334,12 @@ formnewbus.addEventListener("submit", (event) => {
 
   console.log(addbusobject);
   const url = "http://localhost:8080/busticket/bus";
-  put(url,addbusobject)
+  put(url, addbusobject)
 
-  
+
 });
 
-function put(url,data){
+function put(url, data) {
   fetch(url, {
     method: "POST",
     headers: {
@@ -316,6 +351,7 @@ function put(url,data){
     .then((data) => {
       //showSpan2("Bus Add Successfully");
       document.getElementById("my-form-add").reset();
+      document.getElementById("add_route").reset();
 
     })
     .catch((error) => showSpan2("Bus Not Added " + error));
@@ -325,18 +361,18 @@ function put(url,data){
 
 
 //----------add rout---------------//
-document.querySelector(".rout_form").addEventListener("submit",function(){
-    let rout_from=document.getElementById("From").value;
-    let rout_to=document.getElementById("To").value;
-    let rout_Distence=document.getElementById("Distence").value;
-    console.log(rout_from,rout_to,rout_Distence)
-    let data={
-      routeFrom:rout_from,
-      routeTo:rout_to,
-      distance:rout_Distence
-    }
-    let routUrl="http://localhost:8080/bus/route";
-    put(routUrl,data)
+document.querySelector(".rout_form").addEventListener("submit", function () {
+  let rout_from = document.getElementById("From").value;
+  let rout_to = document.getElementById("To").value;
+  let rout_Distence = document.getElementById("Distence").value;
+  console.log(rout_from, rout_to, rout_Distence)
+  let data = {
+    routeFrom: rout_from,
+    routeTo: rout_to,
+    distance: rout_Distence
+  }
+  let routUrl = "http://localhost:8080/bus/route";
+  put(routUrl, data)
 })
 
 
@@ -352,36 +388,19 @@ function getAllUser() {
     });
 }
 
-getAllUserInHtml();
-function getAllUserInHtml() {
-  let UserData = [
-    {
-      "userId": 52,
-      "userName": "akhil",
-      "email": "akhil@gmail.com",
-      "contact": "6799599135",
-      "password": "Akhil12@",
-      "reservation": null
-    },
-    {
-      "userId": 53,
-      "userName": "aweresh",
-      "email": "aweresh@gmail.com",
-      "contact": "9799599135",
-      "password": "Aweresh12@",
-      "reservation": null
-    },
-    {
-      "userId": 54,
-      "userName": "Akash",
-      "email": "Akash@gmail.com",
-      "contact": "9799599754",
-      "password": "Akash12@",
-      "reservation": null
-    }
-  ]
+
+function getAllUserInHtml(UserData) {
+  console.log(UserData);
+  if (UserData.message == "No any User  present") {
+    return;
+  }
+  // if (UserData) {
+  //   return;
+  // }
+
   let cards = document.querySelector(".UserCard");
 
+  cards.innerHTML = "";
   // cards.innerHTML = "";
   cards.style.display = "grid";
   cards.style.gridTemplateColumns = "repeat(auto-fill,350px)";
@@ -396,7 +415,7 @@ function getAllUserInHtml() {
     userId.innerText = "User ID : " + ele.userId;
 
     let userName = document.createElement("span");
-    userName.innerText = "User Name : " + ele.userName;
+    userName.innerText = "User Name : " + ele.username;
 
     let email = document.createElement("span");
     email.innerText = "User Email : " + ele.email;
@@ -415,7 +434,10 @@ function getAllUserInHtml() {
 
     busdelete.style.border = "0px";
     busdelete.onclick = function () {
-      deleteBusTicket("", ele.userId);
+      deleteUserTicket("http://localhost:8080/bus/user/", ele.userId);
+      setTimeout(() => {
+        getAllUser();
+      }, 200)
     };
 
     let busdiv = document.createElement("div");
@@ -438,13 +460,103 @@ function getAllUserInHtml() {
     //update delete
   });
 }
+
+
+
 //-------------------End User Data-----------------------------------------
 
 
-//-----------------------Add Rout------------------------------------------
+//-----------------------ALL Rout------------------------------------------
+function getAllRout() {
+  fetch("http://localhost:8080/bus/route")
+    .then((res) => res.json())
+    .then((resu) => {
+      console.log(resu);
+      getAllRoutInHtml(resu);
+    });
+}
 
-// let routform=document.getElementsByClassName(".rout_form")
-// routform.addEventListener("submit",()=>{
-//   event.preventDefault
-//   console.log(routform.From.value)
-// });
+function getAllRoutInHtml(RoutData) {
+  console.log(RoutData.message)
+  if (RoutData.message == " Route is not present") {
+    return;
+  }
+
+  let cards = document.querySelector(".rout_card");
+
+  cards.innerHTML = "";
+  // cards.innerHTML = "";
+  cards.style.display = "grid";
+  cards.style.gridTemplateColumns = "repeat(auto-fill,350px)";
+  cards.style.gridColumnGap = "3%";
+  cards.style.gridRowGap = "20%";
+  cards.style.justifyContent = "center";
+  cards.style.padding = "2%";
+  // console.log(UserData)
+  RoutData.forEach((ele) => {
+    //console.log(ele)
+    let routId = document.createElement("span");
+    routId.innerText = "Route ID : " + ele.routeId;
+
+    let from = document.createElement("span");
+    from.innerText = "From: " + ele.routeFrom;
+
+    let to = document.createElement("span");
+    to.innerText = "To : " + ele.routeTo;
+
+    let distance = document.createElement("span");
+    distance.innerText = "Distance : " + ele.distance;
+
+
+    let routdelete = document.createElement("button");
+    routdelete.innerText = "Delete";
+    routdelete.setAttribute("id", "delete-btn");
+    routdelete.style.borderRadius = "10px";
+
+    routdelete.style.border = "0px";
+    routdelete.onclick = function () {
+      deleteRoutTicket("http://localhost:8080/bus/route/", ele.routeId);
+      setTimeout(() => {
+        getAllRout();
+      }, 200)
+    };
+
+    let routdiv = document.createElement("div");
+    routdiv.style.border = "inset";
+    routdiv.style.margin = "1%";
+    routdiv.style.display = "grid";
+    routdiv.style.gridTemplateColumns = "2fr 2fr";
+    routdiv.append(
+      routId,
+      from,
+      distance,
+      to,
+      routdelete
+    );
+    cards.append(routdiv);
+  });
+}
+function deleteRoutTicket(url1, bId) {
+  fetch(`${url1}${bId}`, {
+    method: "DELETE",
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      mess = `Route ticket with ID ${bId} deleted successfully.`;
+      console.log(`Route ticket with ID ${bId} deleted successfully.`);
+      showSpan4(mess);
+    })
+    .catch((error) => {
+      mess = `Error while deleting Route ticket with ID ${bId}: ${error}`;
+      console.error(`Error while deleting Route ticket with ID ${bId}: ${error}`);
+      showSpan3(mess);
+    });
+}
+
+function logout() {
+  localStorage.removeItem("user");
+  window.location.href = "/dist/index.html";
+
+}

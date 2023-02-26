@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <title>BusTicket</title>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/animated-form/dist/Icon.png" />
+    <link rel="icon" href="/dist/Icon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" />
     <script src="https://kit.fontawesome.com/3a2d9fc35d.js" crossorigin="anonymous"></script>
@@ -14,10 +14,13 @@
 
   <body>
     <nav class="navbar navbar-expand-custom navbar-mainbg">
-      <a class="navbar-brand navbar-logo" href="#">
+      <div id="userName">
+        <button onclick="logout()">Log out</button>
+      </div>
+      <span class="navbar-brand navbar-logo" href="#">
         <img id="Name" src="/dist/Logo.png" alt="">
         <img id="logo" src="/dist/Left_logo2.png" alt="">
-      </a>
+      </span>
       <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false"
         aria-label="Toggle navigation">
         <i class="fas fa-bars text-white"></i>
@@ -44,19 +47,22 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0);"><i class="fa-solid fa-road-bridge"></i>All Rout</a>
+            <a class="nav-link" href="javascript:void(0);" onclick="services(event),getAllRout()"
+              data-target=".all_rout"><i class="fa-solid fa-road-bridge" data-target=".all_rout"></i>All Rout</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0);" onclick="services(event)" data-target=".All_user"><i
-                class="fa-regular fa-user" data-target=".All_user"></i>All Users</a>
+            <a class="nav-link" href="javascript:void(0);" onclick="services(event),getAllUser()"
+              data-target=".All_user"><i class="fa-regular fa-user" data-target=".All_user"></i>All Users</a>
           </li>
         </ul>
+        
       </div>
     </nav>
     <!-- partial -->
 
-    <!-----------Add new bus--------->
+
     <div class="service">
+      <!-------------------------------------------------Add  bus-------------------------------->
       <div id="Contant" class="add_bus contant active">
         <span id="my-span2" style="display: none"></span>
         <form id="my-form-add">
@@ -93,9 +99,11 @@
         </form>
       </div>
 
-      <!-- Add routes  -->
+      <!-------------------------------------------- Add bus End------------------------------------------------------>
+
+      <!-------------------------------------------- Add routes------------------------------------------------------>
       <div id="Contant" class="Add_rout contant">
-        <form class="rout_form">
+        <form id="add_route" class="rout_form">
           <div id="Selection">
             <div>
               <span class="custom-dropdown big">
@@ -111,7 +119,7 @@
               </span>
             </div>
             <div>
-              <input type="number" id="Distence" placeholder="Distence"/>
+              <input type="number" id="Distence" placeholder="Distence" />
             </div>
           </div>
           <div>
@@ -119,17 +127,32 @@
           </div>
         </form>
       </div>
+      <!-------------------------------------------- Add routes End----------------------------------------------->
+
+      <!----------------------------------------------------all rout ------------------------------------------>
+
+      <div class="all_rout contant">
+        <span id="my-span4" style="display: none"></span>
+        <div class="rout_card">
+
+          <h3 id="error">Route Not Available</h3>
+        </div>
+      </div>
+      <!----------------------------------------------------all rout end------------------------------------------>
+
+
+      <!----------------------------------------------All user----------------------------------------->
       <div class="All_user contant">
-        <div class="UserCard"></div>
+        <span id="my-span3" style="display: none"></span>
+        <div class="UserCard">
+          <h3 id="error">User Not Available</h3>
+        </div>
       </div>
 
-
-
-
+      <!----------------------------------------------All Buse----------------------------------------->
       <div id="GetAll" class="all_bus contant">
         <span id="my-span" style="display: none"></span>
         <div class="card">
-          <div></div>
           <h3 id="error">Bus Not Available</h3>
           <!-- <img src="/dist/background.png" alt="" /> -->
         </div>

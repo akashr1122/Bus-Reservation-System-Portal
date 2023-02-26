@@ -50,3 +50,22 @@ insert into user values(4,'9666666666','ajitabh@gmail.com','Ajitabh@123','ajitab
 insert into user values(5,'9555555555','chaitali@gmail.com','Chaitali@123','chaitaliform',NULL);
 
 
+dummy route data
+
+insert into route values(1,2,'lucknow','mumbai')
+
+insert into route values(2,4,'patna','mumbai');
+
+ insert into route values(3,6,'patna','lucknow');
+ 
+ insert into route values(4,8,'hyderabad','lucknow');
+ 
+ insert into route values(5,10,'hyderabad','patna');
+ 
+ insert into route values(6,12,'hyderabad','mumbai');
+ 
+ insert into route values(7,12,'mumbai','hyderabad');
+ 
+  insert into route values(8,16,'lucknow','hyderabad');
+  
+  

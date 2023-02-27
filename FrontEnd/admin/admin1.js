@@ -106,8 +106,8 @@ function deleteBusTicket(url1, bId) {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      mess = `Bus ticket with ID ${bId} deleted successfully.`;
-      console.log(`Bus ticket with ID ${bId} deleted successfully.`);
+      mess = `Bus with ID ${bId} deleted successfully.`;
+      console.log(`Bus with ID ${bId} deleted successfully.`);
       showSpan(mess);
       getAll();
     })
@@ -313,6 +313,15 @@ function showSpan4(message) {
   document.getElementById("my-span4").style.display = "inline-block";
   document.getElementById("my-span4").innerText = message;
 }
+
+function showSpan10(message) {
+  document.getElementById("my-span10").style.display = "inline-block";
+  document.getElementById("my-span10").innerText = message;
+}
+document.getElementById("my-span10").addEventListener("click", function () {
+  this.style.display = "none";
+});
+
 document.getElementById("my-span4").addEventListener("click", function () {
   this.style.display = "none";
 });
@@ -356,12 +365,29 @@ function put(url, data) {
   })
     .then((response) => response.json())
     .then((data) => {
-      //showSpan2("Bus Add Successfully");
+      showSpan2("Bus Added Successfully");
       document.getElementById("my-form-add").reset();
-      document.getElementById("add_route").reset();
     })
     .catch((error) => showSpan2("Bus Not Added " + error));
 }
+
+function put2(url, data) {
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      showSpan10("Bus Route Added Successfully");
+
+      document.getElementById("add_route").reset();
+    })
+    .catch((error) => showSpan10("Bus Route not Added " + error));
+}
+
 //end add new bus
 
 //----------add rout---------------//
@@ -376,7 +402,7 @@ document.querySelector(".rout_form").addEventListener("submit", function () {
     distance: rout_Distence,
   };
   let routUrl = "http://localhost:8080/bus/route";
-  put(routUrl, data);
+  put2(routUrl, data);
 });
 
 //-----------------------For Get User data ------------------------//
@@ -427,9 +453,11 @@ function getAllUserInHtml(UserData) {
     let reservation = document.createElement("span");
     let Reserv = ele.reservation;
     if (Reserv != undefined) {
-      Reserv = "Active";
+      Reserv = "Confirmed";
+      reservation.style.color = "green";
     } else {
       Reserv = "Pending";
+      reservation.style.color = "red";
     }
 
     reservation.innerText = "Reservation : " + Reserv;

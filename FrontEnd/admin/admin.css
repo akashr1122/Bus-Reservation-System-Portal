@@ -19,14 +19,14 @@ i {
 /* #Logout{
   z-index: 99;
 } */
-#userName >button{
+#userName > button {
   margin-left: 20px;
   border: none;
   background-color: #d84f57;
   font-weight: bold;
   color: white;
 }
-.hori-selector .right::before{
+.hori-selector .right::before {
   /* z-index: 99; */
 }
 .navbar {
@@ -439,7 +439,8 @@ form div:last-child {
 #my-span,
 #my-span2,
 #my-span3,
-#my-span4 {
+#my-span4,
+#my-span10 {
   font-weight: bold;
   background-color: limegreen;
   width: 100%;
@@ -453,7 +454,8 @@ form div:last-child {
 #my-span:hover,
 #my-span2:hover,
 #my-span3:hover,
-#my-span4:hover {
+#my-span4:hover,
+#my-span10:hover {
   cursor: pointer;
 }
 

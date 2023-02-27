@@ -3,7 +3,7 @@ package com.bus.model;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -38,6 +38,7 @@ public class Route {
 	@Positive(message = "Distance must be a positive integer")
 	private Integer distance;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "route")
 	private List<Bus> busList = new ArrayList<>();
 }

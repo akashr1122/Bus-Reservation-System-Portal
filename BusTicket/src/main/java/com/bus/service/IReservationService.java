@@ -5,10 +5,11 @@ import java.util.List;
 
 import com.bus.exception.ReservationNotFoundException;
 import com.bus.model.Reservation;
+import com.bus.model.User;
 
 public interface IReservationService {
 
-	 String addReservation(Reservation reservation) throws ReservationNotFoundException;
+	 User addReservation(Integer uId,Integer bId) throws ReservationNotFoundException;
 
 	 String updateReservation(Reservation reservation)throws ReservationNotFoundException;
 

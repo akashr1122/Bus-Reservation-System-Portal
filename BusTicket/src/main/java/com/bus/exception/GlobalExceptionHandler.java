@@ -37,6 +37,7 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<MyErrorDetails>(err, HttpStatus.BAD_REQUEST);
 
 	}
+	
 
 	@ExceptionHandler(FeedBackNotFoundException.class)
 	public ResponseEntity<MyErrorDetails> feedBackNotFoundExceptionHandler(FeedBackNotFoundException ie,
@@ -49,6 +50,22 @@ public class GlobalExceptionHandler {
 
 		return new ResponseEntity<MyErrorDetails>(err, HttpStatus.BAD_REQUEST);
 	}
+	
+
+	@ExceptionHandler(LoginException.class)
+	public ResponseEntity<MyErrorDetails> feedBackNotFoundExceptionHandler(LoginException ie,
+			WebRequest req) {
+
+		MyErrorDetails err = new MyErrorDetails();
+		err.setTimestamp(LocalDateTime.now());
+		err.setMessage(ie.getMessage());
+		err.setDetails(req.getDescription(false));
+
+		return new ResponseEntity<MyErrorDetails>(err, HttpStatus.BAD_REQUEST);
+	}
+	
+	
+	
 
 	@ExceptionHandler(RouteNotFoundException.class)
 	public ResponseEntity<MyErrorDetails> routeNotFoundExceptionHandler(RouteNotFoundException ie, WebRequest req) {

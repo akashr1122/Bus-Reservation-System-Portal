@@ -1,66 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <title>BusTicket</title>
-        <meta charset="UTF-8">
-        <link rel="icon" href="/animated-form/dist/Icon.png">
-        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css'>
-        <script src="https://kit.fontawesome.com/3a2d9fc35d.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="./user.css">
+  <head>
+    <meta charset="UTF-8" />
+    <title>BusTicket</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/dist/Icon.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
+    <script src="https://kit.fontawesome.com/3a2d9fc35d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./user.css" />
+  </head>
 
-    </head>
+  <body>
+    <nav class="navbar navbar-expand-custom navbar-mainbg">
+      <a class="navbar-brand navbar-logo" href="#">
+        <img id="Name" src="/dist/Logo.png" alt="" />
+        <img id="logo" src="/dist/Left_logo2.png" alt="" />
+      </a>
+      <div id="user">
+        <a href=""><i class="fa-regular fa-user"></i></a>
+        <a href="/dist/index.html" id="search">Sign in</a>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="background">
+      <!-- <div class="heading">
+        <h1>Find Your Bus</h1>
+      </div> -->
+      <span id="my-span-u1" style="display: none"></span>
 
-    <body>
+      <div id="Selection">
+        <span class="custom-dropdown big">
+          <select id="From">
+            <option value="hide">--From--</option>
+          </select>
+        </span>
+        <span><i class="fa-solid fa-arrow-right-arrow-left"></i></span>
 
-        <nav class="navbar navbar-expand-custom navbar-mainbg">
-            <a class="navbar-brand navbar-logo" href="#">
-                <img id="logo" src="/dist/Left_Logo_Nav.png" alt="">
-            </a>
-            <div id="user">
-                <a href=""><i class="fa-regular fa-user"></i></a>
-                <a href="/animated-form/dist/index.html" id="search">Sign in</a>
+        <span class="custom-dropdown big">
+          <select id="To">
+            <option value="hide">--To--</option>
+          </select>
+        </span>
+        <span>
+          <!-- <input type="date"> -->
+        </span>
+
+        <span>
+          <button id="search" onclick=" AvailableBusInRoot()">Search</button>
+        </span>
+      </div>
+    </div>
+
+    <div id="popup" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <p>This is the popup content</p>
+      </div>
+    </div>
+
+    <div id="container"></div>
+
+
+
+
+    <div class="container-fluid mt-5">
+
+      <div class="card mx-5">
+        <div class="row mb-4 ">
+
+          <div class="col-md-4 col-sm-11 col-xs-11">
+            <div class="footer-text pull-left">
+              <div class="d-flex">
+                <h1 class="font-weight-bold mr-2 px-3" style="color:#16151a; background-color:#d84f57"> Bus </h1>
+                <h1 style="color: #d84f57">Ticket</h1>
+              </div>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi non pariatur
+                numquam animi nam at impedit odit nisi.</p>
+
+              <div class="social mt-2 mb-3">
+
+                <i class="fa fa-facebook-official fa-lg"></i>
+                <i class="fa fa-instagram fa-lg"></i>
+                <i class="fa fa-twitter fa-lg"></i>
+                <i class="fa fa-linkedin-square fa-lg"></i>
+                <i class="fa fa-facebook"></i>
+
+              </div>
 
             </div>
-        </nav>
-        <!-- partial -->
-        <div class="background">
-            <!-- <div class="heading">
-                <h1>Find Your Bus</h1>
-            </div> -->
+          </div>
 
-            <div id="Selection">
 
-                <span class="custom-dropdown big">
-                    <select id="From">
-                        <option value="hide">--From--</option>
+          <div class="col-md-2 col-sm-1 col-xs-1 mb-2"></div>
 
-                    </select>
-                </span>
-                <span><i class="fa-solid fa-arrow-right-arrow-left"></i></span>
+          <div class="col-md-2 col-sm-4 col-xs-4">
 
-                <span class="custom-dropdown big">
-                    <select id="To">
-                        <option value="hide">--To--</option>
+            <h5 class="heading">Services</h5>
+            <ul>
+              <li>IT Consulting -</li>
+              <li>Development</li>
+              <li>Cloud</li>
+              <li>DevOps & Support</li>
+            </ul>
 
-                    </select>
-                </span>
-                <span>
-                    <input type="date">
-                </span>
+          </div>
 
-                <span>
-                    <button id="search" onclick=" AvailableBusInRoot()">Search</button>
-                </span>
+
+          <div class="col-md-2 col-sm-4 col-xs-4">
+
+            <h5 class="heading">Industries</h5>
+            <ul class="card-text">
+              <li>Finance</li>
+              <li>Public Sector</li>
+              <li>Smart Office</li>
+              <li>Retail</li>
+            </ul>
+
+          </div>
+
+
+          <div class="col-md-2 col-sm-4 col-xs-4">
+
+            <h5 class="heading">Company</h5>
+            <ul class="card-text">
+              <li>About Us</li>
+              <li>Blog</li>
+              <li>Contact</li>
+              <li>Join Us</li>
+            </ul>
+
+          </div>
+
+        </div>
+
+
+        <div class="divider mb-4">
+        </div>
+
+
+        <div class="row" style="font-size:10px;">
+
+          <div class="col-md-6 col-sm-6 col-xs-6">
+
+            <div class="pull-left">
+
+              <p><i class="fa fa-copyright"></i> 2020 thezpdesign</p>
+
             </div>
-        </div>
 
-        <div id="container">
-            
+          </div>
+
+
+
+          <div class="col-md-6 col-sm-6 col-xs-6">
+
+
+            <div class="pull-right mr-4 d-flex policy">
+
+              <div>Terms of Use</div>
+              <div>Privacy Policy</div>
+              <div>Cookie Policy</div>
+
+            </div>
+
+
+
+          </div>
+
+
 
         </div>
-    </body>
+      </div>
+
+    </div>
+  </body>
 
 </html>
 <script src="user.js"></script>
+<script src="confirmbooking.js"></script>

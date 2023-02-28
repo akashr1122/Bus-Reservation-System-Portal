@@ -1,10 +1,6 @@
 package com.bus.model;
-
 import java.time.LocalDate;
-
 import com.bus.paylord.Status;
-
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;

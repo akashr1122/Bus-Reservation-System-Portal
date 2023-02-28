@@ -1,6 +1,6 @@
 package com.bus.exception;
 
-public class BusException extends Exception{
+public class BusException extends RuntimeException{
 
 	public BusException() {
 		super();

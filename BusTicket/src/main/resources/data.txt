@@ -1,0 +1,71 @@
+hi
+
+
+bus dummy data
+
+insert into bus values(1,'13:12:00',20,'ak','AC_SLEEPER','patna','vaishali',30);
+
+insert into bus values(2,'13:12:00',20,'ak1','AC_SLEEPER','patna','mumbai',30,NULL);
+
+insert into bus values(3,'13:12:00',20,'ak2','AC_SLEEPER','patna','lucknow',30,NULL);
+ 
+insert into bus values(4,'13:12:00',20,'ak3','AC_SLEEPER','mumbai','patna',30,NULL);
+  
+insert into bus values(5,'13:12:00',20,'ak4','AC_SLEEPER','lucknow','patna',30,NULL);
+  
+insert into bus values(6,'13:12:00',20,'ak5','AC_SLEEPER','lucknow','mumbai',30,NULL);
+   
+insert into bus values(7,'13:12:00',20,'ak5','AC_SLEEPER','mumbai','lucknow',30,NULL);
+    
+insert into bus values(8,'13:12:00',20,'ak6','AC_SLEEPER','amravathi','lucknow',30,NULL);
+    
+insert into bus values(9,'13:12:00',20,'ak6','AC_SLEEPER','hyderabad','lucknow',30,NULL);
+     
+insert into bus values(10,'13:12:00',20,'ak7','AC_SLEEPER','delhi','lucknow',30,NULL);
+
+insert into bus values(11,'13:12:00',20,'ak8','AC_SLEEPER','delhi','Bhubaneswar',30,NULL);
+     
+admin dummy data
+
+insert into admin values(1,'Akhil@123','akhil');
+ 
+insert into admin values(2,'Awresh@123','awresh');
+ 
+insert into admin values(3,'Akash@123','akash');
+  
+insert into admin values(4,'Ajitabh@123','ajitabh');
+   
+insert into admin values(5,'Chaitali@123','chaitali');
+
+user dummy data
+
+insert into user values(1,'9999999999','akhil@gmail.com','Akhil@123','akhilrocks',NULL);
+
+insert into user values(2,'9888888888','akash@gmail.com','Akash@123','akahback',NULL);
+
+insert into user values(3,'9777777777','awresh@gmail.com','Awresh@123','awreshfront',NULL);
+
+insert into user values(4,'9666666666','ajitabh@gmail.com','Ajitabh@123','ajitabhform',NULL);
+
+insert into user values(5,'9555555555','chaitali@gmail.com','Chaitali@123','chaitaliform',NULL);
+
+
+dummy route data
+
+insert into route values(1,2,'lucknow','mumbai')
+
+insert into route values(2,4,'patna','mumbai');
+
+ insert into route values(3,6,'patna','lucknow');
+ 
+ insert into route values(4,8,'hyderabad','lucknow');
+ 
+ insert into route values(5,10,'hyderabad','patna');
+ 
+ insert into route values(6,12,'hyderabad','mumbai');
+ 
+ insert into route values(7,12,'mumbai','hyderabad');
+ 
+  insert into route values(8,16,'lucknow','hyderabad');
+  
+  

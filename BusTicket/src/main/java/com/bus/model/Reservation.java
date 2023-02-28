@@ -1,12 +1,4 @@
 package com.bus.model;
-
-import java.sql.Date;
-import java.time.LocalDateTime;
-
-import com.bus.paylord.Status;
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

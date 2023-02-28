@@ -1,5 +1,4 @@
 package com.bus.service;
-
 import com.bus.exception.BusException;
 import com.bus.exception.ReservationNotFoundException;
 import com.bus.exception.UserNotFoundException;
@@ -10,10 +9,8 @@ import com.bus.paylord.Status;
 import com.bus.repository.BusDao;
 import com.bus.repository.ReservationDao;
 import com.bus.repository.UserDao;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -40,11 +37,7 @@ public class IReservationServiceImpl implements IReservationService {
     	      
     	 Reservation reservation = new Reservation(0, Status.Active, "OnlineTickting", LocalDateTime.now(),bus.getRouteFrom(),bus.getRouteTo(), bus);
     	   user.setReservation(reservation);
-    	   
     	       userDao.save(user);
-    	  
-    	
-    	
 		return user;
 	}
 	
